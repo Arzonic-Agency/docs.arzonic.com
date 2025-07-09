@@ -1,0 +1,1206 @@
+{
+  "edit": "Edit",
+  "save": "Save",
+  "update": "Update",
+  "updating": "Updating...",
+  "delete": "Delete",
+  "delete_selected": "Delete",
+  "cancel": "Cancel",
+  "create": "Create",
+  "back": "Back",
+  "search": "Search",
+  "language": "Language",
+  "light": "Light",
+  "dark": "Dark",
+  "new": "new",
+  "write_company_name": "Write company name...",
+  "write_contact_person": "Write contact person...",
+  "write_desc": "Write a description...",
+  "write_city": "Write a city...",
+  "write_country": "Write a country...",
+  "company_name": "Company Name",
+  "contact_person": "Contact Person",
+  "details": "Details",
+  "desc": "Description",
+  "description": "Description",
+  "city": "City",
+  "country": "Country",
+  "creation_date": "Creation Date",
+  "image_update": "Update Image",
+  "choose_images": "Choose Image",
+  "subject": "Subject",
+  "surname": "Surname",
+  "email": "Email",
+  "password": "Password",
+  "confirm_password": "Confirm Password",
+  "mobile": "Mobile",
+  "name": "Name",
+  "message": "Message",
+  "no_message": "No Message",
+  "chars": "characters",
+  "company_name_required": "Title is required",
+  "desc_required": "Description is required",
+  "city_required": "City is required",
+  "country_required": "Country is required",
+  "contact_person_required": "Contact person is required",
+  "invalid_email": "The email is invalid",
+  "password_too_short": "Password must be at least 6 characters",
+  "passwords_not_matching": "Passwords do not match",
+  "invalid_date": "Invalid Date",
+  "invalid_days": "Invalid number of days",
+  "registration_error": "Error during registration, please try again",
+  "case": "Case",
+  "cases": "Cases",
+  "review": "Review",
+  "reviews": "Reviews",
+  "requests": "Requests",
+  "bookings": "Bookings",
+  "request_details": "Request Details",
+  "request_time": "Request Time",
+  "updated_job": "Job updated",
+  "deleted_case": "Case deleted",
+  "deleted_request": "Request deleted",
+  "deleted_review": "Review deleted",
+  "deleted_application": "Application deleted",
+  "deleted_job": "Job posting deleted",
+  "delete_case_confirmation": "Delete Case",
+  "delete_case_prompt": "Are you sure you want to delete this case?",
+  "delete_case_warning": "This action cannot be undone.",
+  "delete_request_confirmation": "Delete Requests",
+  "delete_request_prompt": "Are you sure you want to delete the this customer request?",
+  "delete_request_prompt_selected": "Are you sure you want to delete the selected requests?",
+  "delete_request_warning": "This action cannot be undone.",
+  "delete_review_confirmation": "Delete Review",
+  "delete_review_prompt": "Are you sure you want to delete this review?",
+  "delete_review_warning": "This action cannot be undone.",
+  "delete_application_confirmation": "Delete Application",
+  "delete_application_prompt": "Are you sure you want to delete this application?",
+  "delete_application_warning": "This action cannot be undone.",
+  "delete_job_confirmation": "Delete Job Posting",
+  "delete_job_prompt": "Are you sure you want to delete this job posting?",
+  "delete_job_warning": "This action cannot be undone.",
+  "case_creation": "Case creation",
+  "review_creation": "Review creation",
+  "case_editing": "Case editing",
+  "review_editing": "Review editing",
+  "customer": "Customer",
+  "customers": "Customers",
+  "customer_details_updated": "Customer details updated",
+  "customer_notes": "Customer Notes",
+  "no_notes_available": "No notes available",
+  "add_note": "Add Note",
+  "write_note": "Write a note...",
+  "contact_customer": "Contact Customer",
+  "no_address": "No address",
+  "show_route": "Show Route",
+  "address_and_city": "Address & City",
+  "task_interest": "Task Interest",
+  "consent_status": "Consent Status",
+  "consent_given": "Consent Given",
+  "consent_missing": "Consent Missing",
+  "user": "user",
+  "user_created": "User created",
+  "user_updated": "User updated",
+  "user_deleted": "User deleted",
+  "create_new_user": "Create new user",
+  "create_user": "Create User",
+  "update_user": "Update User",
+  "creating_user": "Creating user...",
+  "delete_user_confirmation": "Delete User",
+  "delete_user_prompt": "Are you sure you want to delete this user?",
+  "delete_user_warning": "This action cannot be undone.",
+  "user_admin": "User Admin",
+  "user_control": "User Control",
+  "select_access_level": "Select Access Level",
+  "editor": "Editor",
+  "admin": "Admin",
+  "loading_cases": "Loading Cases...",
+  "loading_reviews": "Loading Reviews...",
+  "loading_request": "Loading Requests...",
+  "loading_users": "Loading Users...",
+  "loading_packages": "Loading Packages...",
+  "loading_jobs": "Loading Jobs...",
+  "no_users": "No users available",
+  "no_cases": "No cases available",
+  "no_reviews": "No reviews available",
+  "no_requests": "No requests available",
+  "overview": "Overview",
+  "content": "Content",
+  "settings": "Settings",
+  "site": "Site",
+  "site_setup": "Site Setup",
+  "layout_settings": "Layout Settings",
+  "packages": "Packages",
+  "bookingMeeting": "Book a Meeting",
+  "createJob": {
+    "formTitle": "Create Job Posting",
+    "title": "Job Title",
+    "subtitle": "Headline",
+    "jobType": "Job Type",
+    "workplace": "Workplace",
+    "startType": "Start Time",
+    "deadline": "Application Deadline",
+    "description": "Job Description",
+    "create": "Create Job",
+    "creating": "Saving...",
+    "loading": "Loading job form...",
+    "placeholders": {
+      "title": "Enter a job title...",
+      "subtitle": "Enter a headline..."
+    },
+    "errors": {
+      "title": "Title is required",
+      "subtitle": "Subtitle is required",
+      "desc": "Description is required",
+      "type": "Job type is required",
+      "workplace": "Workplace is required",
+      "deadline": "Deadline is required",
+      "start": "Select a start date or start type"
+    }
+  },
+  "updateJob": {
+    "formTitle": "Edit Job Posting",
+    "title": "Job Title",
+    "subtitle": "Headline",
+    "jobType": "Job Type",
+    "workplace": "Workplace",
+    "startType": "Start Time",
+    "deadline": "Application Deadline",
+    "description": "Job Description",
+    "save": "Save Changes",
+    "saving": "Saving...",
+    "loading": "Loading job data...",
+    "placeholders": {
+      "title": "Enter a new job title...",
+      "subtitle": "Enter a new headline..."
+    },
+    "errors": {
+      "title": "Title is required",
+      "subtitle": "Headline is required",
+      "desc": "Description is required",
+      "type": "Job type is required",
+      "workplace": "Workplace is required",
+      "deadline": "Application deadline is required",
+      "start": "Select either a start date or start type"
+    }
+  },
+  "jobsDetails": {
+    "loading": "Loading job details...",
+    "title": "Job details",
+    "back": "Back",
+    "edit": "Edit",
+    "details": "Details",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "apply": "Apply now",
+    "deadline": "Application Deadline",
+    "active": "Active",
+    "inactive": "Inactive",
+    "delete_job_confirmation": "Confirm job deletion",
+    "delete_job_prompt": "Are you sure you want to delete this job?",
+    "delete_job_warning": "This action cannot be undone.",
+    "deleted_application": "Application deleted",
+    "updated_job": "Job updated",
+    "fields": {
+      "title": "Job title",
+      "type": "Job type",
+      "startDate": "Start date / type",
+      "workplace": "Workplace",
+      "deadline": "Application deadline",
+      "createdAt": "Created at",
+      "unknown": "Unknown"
+    },
+    "applications": {
+      "title": "Candidate list",
+      "noApplications": "No applications found.",
+      "noReason": "No message provided"
+    }
+  },
+  "setup": {
+    "jobs": "Jobs",
+    "create": "Create",
+    "job": "job",
+    "job_details": "Job details",
+    "unknown": "Unknown",
+    "mobile": "Phone",
+    "email": "Email",
+    "consent_status": "Consent",
+    "consent_given": "Given",
+    "consent_missing": "Missing",
+    "creation_date": "Created at",
+    "cv_and_application": "CV and application",
+    "view_cv": "View CV",
+    "view_application": "View application",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "delete_confirmation": "Confirm deletion",
+    "delete_application_prompt": "Are you sure you want to delete this application?",
+    "delete_application_warning": "This action cannot be undone.",
+    "back": "Back",
+    "aria_delete_button": "Delete application"
+  },
+  "image_upload": {
+    "change_image": "Change Image",
+    "select_image_type": "Select image type",
+    "intro": "Intro (homepage)",
+    "about_us": "About Us (homepage)",
+    "upload": "Upload",
+    "preview_alt": "Preview",
+    "file_uploaded": "File uploaded!",
+    "confirm_upload": "Confirm upload",
+    "confirm_upload_message": "Are you sure you want to upload this image?",
+    "warning": "Warning: The old image cannot be restored",
+    "cancel": "Cancel"
+  },
+  "solutions": "Solutions",
+  "about": "About",
+  "contact": "Contact",
+  "company": "Company Name",
+  "privacy_policy": "Privacy Policy",
+  "terms_of_service": "Terms of Service",
+  "cards": "Cards",
+  "list": "List",
+  "from_reviews": "from",
+  "logout": "Logout",
+  "date": "Date",
+  "time": "Time",
+  "created_by": "Created By",
+  "unknown": "Unknown",
+  "unknown_page": "Unknown Page",
+  "sent_by": "Sent by",
+  "delete_confirmation": "Confirm Deletion",
+  "delete_choosings": "Delete choosings",
+  "days_left": "Days Left",
+  "time_expired": "Time has expired",
+  "website_url": "Website URL",
+  "write_website_url": "Enter website URL...",
+  "PriceEstimator": {
+    "title": "Price Estimator",
+    "loading": "Loading services…",
+    "error": "Error: {{message}}",
+    "noVAT": "No VAT",
+    "choosePack": "Choose a starter pack:",
+    "packLabel": "€{{price}} – {{label}}",
+    "countryForVAT": "Country for VAT:",
+    "addServices": "Add extra services:",
+    "serviceLabel": "€{{price}} – {{label}}",
+    "subtotal": "Subtotal",
+    "vat": "VAT ({{name}} - {{rate}}%)",
+    "totalInclVAT": "Total incl. VAT",
+    "getInTouch": "Get in Touch",
+    "disclaimer": "Disclaimer: The price shown is only an estimation and may vary. Final pricing will be confirmed upon consultation."
+  },
+  "Starter": {
+    "title": "Starter",
+    "description": "Perfect for small businesses or personal brands",
+    "features": {
+      "customDesign": "Custom Design",
+      "responsiveFast": "Responsive and fast",
+      "basicSEO": "Basic SEO setup",
+      "simpleCMS": "Simple CMS or static content"
+    }
+  },
+  "Pro": {
+    "title": "Pro",
+    "including": "Included",
+    "description": "Ideal for digital products and feature-rich solutions",
+    "features": {
+      "bespokeUIUX": "Bespoke UI/UX design",
+      "featureRich": "Feature-rich functionality",
+      "databaseIntegration": "Database integration",
+      "adminDashboard": "Admin dashboard"
+    }
+  },
+  "Premium": {
+    "title": "Premium",
+    "including": "Included",
+    "description": "Everything included – premium features, visuals, and 3D",
+    "features": {
+      "sleekLayout": "Sleek, animated layout",
+      "parallaxEffects": "Subtle parallax & motion effects",
+      "integrated3D": "Integrated 3D elements",
+      "performance": "Built for performance"
+    }
+  },
+
+  "startingFrom": "Starting from",
+  "customQuotePrompt": "Get your custom quote in few seconds",
+  "getQuote": "Get a Quote",
+  "Header": {
+    "brandName": "Arzonic",
+    "solutions": "Solutions",
+    "logoAlt": "Arzonic Agency Logo",
+    "cases": "Cases",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "getStarted": "Get Started",
+    "followUs": "Follow us",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "dropdown": {
+      "customWebsites": "Custom Websites",
+      "webApplications": "Web Applications",
+      "visualization": "3D Visualization",
+      "designAnimation": "Design & Animation",
+      "marketing": "Marketing"
+    },
+    "aria": {
+      "navigation": {
+        "linkToHome": "Go to homepage",
+        "linkToSolutions": "Go to solutions",
+        "linkToCases": "Go to cases",
+        "linkToContact": "Go to contact",
+        "getStarted": "Get started",
+        "linkToOverview": "Go to overview",
+        "linkToContent": "Go to content",
+        "linkToCustomers": "Go to customers",
+        "linkToSettings": "Go to settings"
+      }
+    }
+  },
+  "Hero": {
+    "title": "SOFTWARE AGENCY",
+    "description": "Specializing in custom web applications, powerful dashboards, and stunning 3D experiences powered by cutting-edge technology.",
+    "customWebsites": "Custom Websites",
+    "visualization": "3D Visualization",
+    "webApplications": "Web Applications",
+    "seeMore": "See Solutions"
+  },
+  "Present": {
+    "title": "Superfast websites – built for performance and growth",
+    "customDesign": {
+      "title": "Custom design that reflects you",
+      "description": "No templates. No compromises. We design every pixel to match your brand and make you stand out."
+    },
+    "easyToManage": {
+      "title": "Easy to manage",
+      "description": "Update your content in seconds. Our built-in dashboard gives you full control."
+    },
+    "blazingFast": {
+      "title": "Blazing fast, everywhere",
+      "description": "No more sluggish load times. Your site is built for speed – on mobile, desktop and all between."
+    },
+    "builtToGrow": {
+      "title": "Built to grow with your business",
+      "description": "From small team to full-scale operation. Your website is flexible, future-proof, and ready to scale with you."
+    }
+  },
+  "Preview": {
+    "title": "Your Dashboard, Your Way",
+    "subtitle": "Stay in control with a dashboard built around you",
+    "aria": {
+      "imageAlt": "Example of a solution"
+    }
+  },
+  "NavProcess": {
+    "header": {
+      "title": "This is how our customer process looks like!",
+      "description-first": "We guide you ",
+      "description-second": "through every step with clarity, creativity, and care."
+    },
+    "steps": {
+      "discoveryStrategy": "Discovery & Strategy",
+      "designExperience": "Design & Experience",
+      "developmentIntegration": "Development & Integration",
+      "launchSupport": "Launch & Support"
+    },
+    "aria": {
+      "discovery-strategy": "Go to Discovery & Strategy",
+      "design-experience": "Go to Design & Experience",
+      "development-integration": "Go to Development & Integration",
+      "launch-support": "Go to Launch & Support"
+    }
+  },
+  "Process": {
+    "discoveryStrategy": {
+      "title": "Discovery & Strategy",
+      "subtitle": "From Vision to Roadmap",
+      "description": "Just like any great expedition, your project begins with a clear destination and a solid route. We explore your goals, understand your market, and build a step-by-step plan to reach your digital summit.",
+      "steps": [
+        "Clarify your destination (vision & purpose)",
+        "Understand your audience and terrain",
+        "Create a strategic map with key checkpoints",
+        "Set clear scope and timeframes for the journey"
+      ]
+    },
+    "designExperience": {
+      "title": "Design & Experience",
+      "subtitle": "Shaping the Experience",
+      "description": "With the journey mapped, we bring it to life. Starting with wireframes, we layer in clarity, emotion, and interaction—designing every screen to feel effortless and aligned with your goals.",
+      "steps": [
+        "Map the user journey with intent",
+        "Transform ideas into structured wireframes",
+        "Design responsive layouts across all devices",
+        "Focus relentlessly on user needs and simplicity"
+      ]
+    },
+    "developmentIntegration": {
+      "title": "Development & Integration",
+      "subtitle": "Building Solid Foundations",
+      "description": "We turn designs into powerful, scalable, and future-proof digital solutions — ready to grow with your business needs.",
+      "steps": [
+        "Frontend and backend development",
+        "Clean, scalable, and efficient code",
+        "API and third-party system integrations",
+        "Ongoing testing for quality assurance"
+      ]
+    },
+    "launchSupport": {
+      "title": "Launch & Support",
+      "subtitle": "Bringing It to Life – and Beyond",
+      "description": "Launching is just the beginning. We make sure your website goes live without a hitch – and we stay with you to ensure it continues to perform, evolve, and support your business goals.",
+      "steps": [
+        "Smooth and secure go-live process",
+        "Continuous support and updates",
+        "Performance tracking and improvements",
+        "Scalable solutions for future needs"
+      ]
+    }
+  },
+  "OfferForm": {
+    "title": "Request a custom quote",
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "Enter your email"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "Enter your phone number"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Describe your needs, preferred time, address, etc."
+      },
+      "consent": {
+        "label": "I accept the storage of my information for up to 30 days",
+        "readMore": "Read more"
+      },
+      "website_url": {
+        "label": "Website URL",
+        "placeholder": "Enter website URL..."
+      }
+    },
+    "buttons": {
+      "submit": "Send Request",
+      "sending": "Sending..."
+    },
+    "success": {
+      "title": "Thank you for your request!",
+      "message": "We will get back to you as soon as possible.",
+      "closeButton": "Close"
+    },
+    "errors": {
+      "invalidPhone": "Invalid phone number.",
+      "consentRequired": "You must accept storage of your information.",
+      "generic": "Something went wrong. Please try again later."
+    },
+    "aria": {
+      "nameInput": "Enter your name",
+      "emailInput": "Enter your email",
+      "phoneInput": "Enter your phone number",
+      "messageInput": "Enter your message",
+      "submitButton": "Submit the form",
+      "consentCheckbox": "Accept consent"
+    }
+  },
+  "TaskSelect": {
+    "legend": "Which solution are you interested in?",
+    "placeholder": "Choose Solution",
+    "options": {
+      "website": "Website",
+      "webApp": "Web App",
+      "visualization": "3D Visualization",
+      "branding": "Branding",
+      "marketing": "Marketing",
+      "other": "Other"
+    },
+    "aria": {
+      "selectTask": "Select a task"
+    }
+  },
+  "ContactPage": {
+    "title": "Start the dialogue",
+    "subtitle": "- completely non-binding",
+    "readyTitle": "Ready to get started?",
+    "contactPrompt": "Contact us today – we will quickly get back to you with an estimate or a discussion about the solution.",
+    "ambitionMessage": "We love ambitious ideas and are happy to help make them a reality.",
+    "callPrompt": "Call us at",
+    "phoneNumber": "+45 22 50 17 03",
+    "bookPrompt": "or you ready for a meeting?",
+    "imageAlt": "hero"
+  },
+  "PricingPage": {
+    "titleStart": "Flexible plans,",
+    "titleEnd": "Transparent pricing",
+    "subtitle": "Choose a solution that fits your needs – no surprises, just results",
+    "vatNote": "All prices are excluding VAT",
+    "aria": {
+      "getQuoteButton": "Get a quote"
+    },
+    "oneTime": "One-time (excl. service agreement)",
+    "monthly48": "Price per month over 48 months",
+    "paymentInfo": "All plans require service agreement, which includes maintenance, support, and hosting",
+    "oneTimeTab": "One-time",
+    "monthlyTab": "Monthly"
+  },
+  "PlansComparison": {
+    "title": "Compare our plans",
+    "table": {
+      "featureColumn": "Feature / Package"
+    },
+    "title-btn": "Ready to find your plan?",
+    "selectLabel": "Select a package to view details",
+
+    "text-btn": "Get Started",
+    "startingFrom": "Package Price",
+    "vatNote": "All prices are excl. VAT",
+    "legend": "Included | – Not included in standard package",
+    "features": {
+      "serviceFee": "Monthly Service Agreement",
+      "customDesign": "Custom design",
+      "responsive": "Responsive and fast",
+      "contactForm": "Contact form",
+      "seo": "SEO setup",
+      "cms": "CMS / Editable content",
+      "login": "User login and access",
+      "mail": "Mail system",
+      "dashboard": "Admin dashboard",
+      "database": "Database integration",
+      "users": "Customer Login",
+      "analytics": "Statistics and analytics",
+      "3d": "3D elements and animations",
+      "scroll": "Scroll effects and parallax"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "7,000 DKK",
+        "seo": "Basic",
+        "cms": "Simple"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "13,000 DKK",
+        "seo": "Advanced",
+        "cms": "Advanced"
+      },
+      "premium": {
+        "name": "Premium",
+        "price": "16,000 DKK",
+        "seo": "Advanced",
+        "cms": "Advanced"
+      }
+    },
+
+    "aria": {
+      "getStartedButton": "Get started with pricing comparison"
+    }
+  },
+  "Support": {
+    "title": "We handle maintenance, support and hosting",
+    "items": {
+      "hosting": {
+        "title": "Hosting & domain management",
+        "desc": "We ensure your website is online, fast and reliable. No need to worry about technical setup, domain renewals or server operations."
+      },
+      "security": {
+        "title": "Backup & security updates",
+        "desc": "Your solution is continuously updated and backed up. We monitor, maintain and ensure everything runs securely and smoothly – always."
+      },
+      "support": {
+        "title": "Minor updates & support",
+        "desc": "You get continuous support and help with minor changes – whether it's content updates or small functional tweaks."
+      }
+    }
+  },
+  "ConsentModal": {
+    "title": "Consent & Privacy Policy",
+    "section1": {
+      "title": "1. Collection and Processing of Personal Data",
+      "description": "When you use our price calculator or fill out a contact form on Arzonic Agency's website, we collect and process the following information:",
+      "list": {
+        "name": "Name",
+        "phone": "Phone number",
+        "email": "Email address",
+        "details": "Any details you provide in your message or request"
+      },
+      "note": "This information is used solely to respond to your inquiry, prepare a quote, and follow up if necessary."
+    },
+    "section2": {
+      "title": "2. Data Retention and Deletion",
+      "description": "Your data is stored securely and confidentially.",
+      "list": {
+        "noCustomer": "If no customer relationship is established, your data will be automatically deleted after 30 days.",
+        "customer": "If you become a customer, we will retain your data only as long as necessary to provide our services or comply with legal obligations."
+      },
+      "note": "You may request early deletion by contacting us at mail@arzonic.com."
+    },
+    "section3": {
+      "title": "3. Disclosure of Information",
+      "description": "We do not share your information with third parties unless it is necessary to fulfill your request (e.g., a subcontractor). If this is the case, it will only be done with your prior consent."
+    },
+    "section4": {
+      "title": "4. Your Rights",
+      "description": "You have the right to:",
+      "list": {
+        "access": "Access the data we hold about you",
+        "correct": "Correct inaccurate or outdated information",
+        "delete": "Request deletion of your data (unless retention is required by law)",
+        "withdraw": "Withdraw your consent to data processing"
+      },
+      "note": "To exercise your rights, contact us at mail@arzonic.com."
+    },
+    "section5": {
+      "title": "5. Consent",
+      "description1": "By submitting your information through our website, you consent to the processing of your data as described above.",
+      "description2": "You may withdraw your consent at any time by contacting us. If there is no legal reason to retain your data, it will be deleted upon request."
+    },
+    "section6": {
+      "title": "6. Data Security",
+      "description": "We implement appropriate technical and organizational measures to protect your data against unauthorized access, misuse, or disclosure."
+    },
+    "section7": {
+      "title": "7. Updates to This Policy",
+      "description": "We reserve the right to update this Consent & Privacy Policy. The most recent version will always be available on our website."
+    },
+    "lastUpdated": "Last updated: May 7, 2025",
+    "closeButton": "Close"
+  },
+  "TermsModal": {
+    "title": "Terms of Service",
+    "closeButton": "Close",
+    "effectiveFrom": "Effective from: May 7, 2025",
+    "lastUpdated": "Last updated: May 7, 2025",
+    "effectiveNote": "These terms apply to all agreements entered into after this date.",
+    "section1": {
+      "title": "1. Introduction",
+      "description": "These terms apply to all services and products provided by Arzonic Agency to our clients. By using our website or services, you agree to these terms."
+    },
+    "section2": {
+      "title": "2. Services",
+      "description": "We provide digital consultancy and ready-made solutions including web development, 3D design, and maintenance. Scope is agreed individually."
+    },
+    "section3": {
+      "title": "3. Payment and Invoicing",
+      "description": "Payment is due upon invoice unless otherwise agreed. Payment terms: 8 days net. Late payments may incur fees and interest according to law."
+    },
+    "section4": {
+      "title": "4. Intellectual Property",
+      "description": "All materials developed by Arzonic remain our property unless otherwise agreed in writing. The client receives a usage license."
+    },
+    "section5": {
+      "title": "5. Liability and Limitations",
+      "description": "We disclaim responsibility for indirect losses, third-party software issues, and force majeure events."
+    },
+    "section6": {
+      "title": "6. Cooperation and Changes",
+      "description": "The client must respond in a timely manner. Changes must be agreed in writing. Lack of cooperation may affect delivery."
+    },
+    "section7": {
+      "title": "7. Termination",
+      "description": "Ongoing agreements can be terminated with one month’s notice. Immediate termination may occur in case of material breach."
+    },
+    "section8": {
+      "title": "8. Governing Law and Jurisdiction",
+      "description": "Disputes are governed by Danish law with jurisdiction in the Court of Hillerød."
+    },
+    "section9": {
+      "title": "9. Changes to Terms",
+      "description": "We reserve the right to modify these terms. The latest version is always available on our website."
+    }
+  },
+  "GetStarted": {
+    "title": "Estimate your project",
+    "subtitle": "– in under a minute"
+  },
+  "Footer": {
+    "companyName": "Arzonic ApS",
+    "reliableTech": "Reliable solutions since 2024",
+    "aboutUs": "About Us",
+    "jobs": "Jobs",
+    "legal": "Legal",
+    "solutions": "Solutions",
+    "contactUs": "Contact Us",
+    "followUs": "Follow Us",
+    "newsletter": "Subscribe to our newsletter",
+    "newsletterPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "rightsReserved": "All rights reserved."
+  },
+  "CallToAction": {
+    "reachingBeyondBorders": "Beyond borders",
+    "collaborationMessage": "At Arzonic, we work with ambitious companies across Europe to strengthen their digital presence"
+  },
+  "solutionsPage": {
+    "common": {
+      "countryAllTitle": "Available in these countries:",
+      "btn": "Find your price"
+    },
+    "custom-websites": {
+      "titleStart": "Custom",
+      "titleEnd": "Websites",
+      "hero": "Custom Websites that put your business in focus.",
+      "body": "Your website is often your first impression—and it needs to be perfect. We build tailored websites focused on your brand, goals, and target audience. Enjoy lightning-fast loading speeds, mobile-friendly design, and a flexible structure ready to scale.",
+      "processTitle": "Our process to make a new customized website",
+      "process": [
+        "Strategy and planning",
+        "User-friendly design",
+        "Custom development",
+        "SEO and performance optimization"
+      ],
+      "cta": "Ready to elevate your business online?"
+    },
+    "web-applications": {
+      "titleStart": "Effective",
+      "titleEnd": "Web Applications",
+      "hero": "Digital solutions designed to streamline your operations and boost productivity.",
+      "body": "We create user-friendly web applications tailored to your business needs. Whether it's internal dashboards, customer-facing tools, or complex platforms, our solutions prioritize usability, speed, and security, helping your business grow efficiently.",
+      "processTitle": "Our process making a Web Application",
+      "process": [
+        "Needs analysis and consultation",
+        "Intuitive UI/UX design",
+        "Full-stack development",
+        "Testing, deployment, and ongoing support"
+      ],
+      "cta": "Let’s turn your digital vision into reality."
+    },
+    "3d-visualization": {
+      "titleStart": "Professional",
+      "titleEnd": "3D Visualization",
+      "hero": "Stunning 3D visualizations that showcase your products and ideas clearly.",
+      "body": "Bring your products and projects to life with professional 3D visuals. We produce realistic renders and animations perfect for presentations, sales materials, or interactive web experiences, enhancing your brand’s appeal and customer engagement.",
+      "processTitle": "The process of creating 3D visualization",
+      "process": [
+        "Detailed 3D modeling",
+        "Realistic renderings and animations",
+        "Interactive web-ready 3D",
+        "Performance optimization for fast loading"
+      ],
+      "cta": "Showcase your business with impactful 3D visuals."
+    },
+    "design-animation": {
+      "titleStart": "Graphic Design &",
+      "titleEnd": "Animation",
+      "hero": "Memorable designs and animations that captivate your audience.",
+      "body": "Elevate your brand with powerful graphic designs and engaging animations. From distinctive brand identities to interactive animated content, we create visuals that clearly communicate your message and leave a lasting impression.",
+      "processTitle": "Our process of creating graphic design and animation",
+      "process": [
+        "Brand identity and visual style",
+        "Custom graphics and illustrations",
+        "Engaging animations",
+        "Integration across digital channels"
+      ],
+      "cta": "Make your brand unforgettable."
+    }
+  },
+  "countries": {
+    "denmark": "Denmark",
+    "sweden": "Sweden",
+    "norway": "Norway",
+    "finland": "Finland",
+    "germany": "Germany",
+    "netherlands": "Netherlands",
+    "belgium": "Belgium",
+    "ireland": "Ireland",
+    "switzerland": "Switzerland",
+    "estonia": "Estonia",
+    "poland": "Poland",
+    "czechia": "Czechia",
+    "latvia": "Latvia",
+    "lithuania": "Lithuania",
+    "austria": "Austria"
+  },
+  "CasesPage": {
+    "title": "What we have",
+    "highlight": "created for others",
+    "emptyState": {
+      "title": "No cases found",
+      "description": "We are working on adding more cases. Check back soon!"
+    }
+  },
+  "SolutionsPage": {
+    "title": "What we can",
+    "highlight": "create for you",
+    "custom-websites": "Custom websites",
+    "web-applications": "Web applications",
+    "visualization": "3D visualization",
+    "design-animation": "Design & animation"
+  },
+  "solutionscards": {
+    "custom": {
+      "title": "Custom Websites",
+      "description": "Tailor-made sites focused on design, performance, and conversion – built to reflect your identity.",
+      "image": "/backgrounds/custom-websites.jpg"
+    },
+    "webapp": {
+      "title": "Web Applications",
+      "description": "We build apps with dashboards, databases, and integrations – ideal for digital-first companies.",
+      "image": "/backgrounds/web-applications.jpg"
+    },
+    "visualization": {
+      "title": "3D Visualization",
+      "description": "Integrate interactive 3D directly into your site – ideal for showcasing products or unique brand stories.",
+      "image": "/backgrounds/3d-visualization.jpg"
+    },
+    "design": {
+      "title": "Design & Animation",
+      "description": "Modern UI and animations that create fluid, engaging interfaces with strong brand expression.",
+      "image": "/backgrounds/design-animation.jpg"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": {
+      "title": "How long does it take?",
+      "answer": "It depends on the complexity of the project. A simple landing page can typically be ready in 1–2 weeks, while a custom web application or a 3D-enhanced solution may take 4–8 weeks or more. We always provide a realistic timeline at project start."
+    },
+    "q2": {
+      "title": "Is maintenance included?",
+      "answer": "All our solutions include a service agreement covering hosting, support, maintenance, and operations. You can choose between a one-time payment or a monthly installment plan – and we’ll take care of the rest."
+    },
+    "q3": {
+      "title": "Can I edit content myself?",
+      "answer": "Yes! All our solutions include a user-friendly CMS or dashboard that lets you easily edit text, images, and content yourself. Prefer something simpler? We can also build static solutions with zero maintenance needs."
+    },
+    "q4": {
+      "title": "What if I need new features later?",
+      "answer": "We build with scalability in mind. It's easy to add features or expand the solution later, and we're happy to help – whether it's bookings, integrations, e-commerce or something else."
+    }
+  },
+
+  "jobsPage": {
+    "titleStart": "Join the journey at",
+    "titleEnd": "Arzonic",
+    "noOpeningsTitle": "Thank you for your interest",
+    "noOpenings": "We currently have no open positions, but we’re always happy to hear from talented and passionate people. You’re welcome to send us an unsolicited application.",
+    "contactMail": "You can write to us at:",
+
+    "noMatchTitle": "Didn't find the right position?",
+    "noMatchDescription": "We're always looking for passionate people who love web, design, and technology. Feel free to send us an application.",
+    "sendApplication": "Send your application"
+  },
+  "applyJobForm": {
+    "title": "Submit your application",
+    "subtitle": "Fill in your details and feel free to attach your CV and application.",
+    "applyTo": "Apply to:",
+    "fields": {
+      "name": {
+        "label": "Full name",
+        "placeholder": "Enter your full name"
+      },
+      "email": {
+        "label": "Mail address",
+        "placeholder": "Enter your mail address"
+      },
+      "phone": {
+        "label": "Mobile number",
+        "placeholder": "Enter your mobile number"
+      },
+      "cv": {
+        "label": "Upload CV",
+        "maxSize": "Max size: 10 MB. PDF only."
+      },
+      "application": {
+        "label": "Upload application",
+        "maxSize": "Max size: 10 MB. PDF only."
+      },
+      "consent": {
+        "label": "I consent to having my information stored for up to 30 days",
+        "readMore": "Read more"
+      }
+    },
+    "aria": {
+      "nameInput": "Enter your name",
+      "emailInput": "Enter your mail address",
+      "phoneInput": "Enter your mobile number",
+      "cvInput": "Upload your CV",
+      "applicationInput": "Upload your application",
+      "consentCheckbox": "Give consent",
+      "submitButton": "Submit application"
+    },
+    "buttons": {
+      "submit": "Submit application",
+      "sending": "Sending..."
+    },
+    "errors": {
+      "invalidPhone": "Please enter a valid Danish phone number.",
+      "invalidEmail": "Please enter a valid email address.",
+      "consentRequired": "You must accept the consent to proceed.",
+      "alreadyAppliedMail": "You have already applied for this position with this email address.",
+      "alreadyAppliedMobile": "You have already applied for this position with this mobile number.",
+      "generic": "Something went wrong. Please try again later."
+    },
+    "success": {
+      "requestSent": "Your application has been submitted.",
+      "title": "Thank you for your application",
+      "message": "We have received your information and will get back to you.",
+      "closeButton": "Back to job post"
+    }
+  },
+
+  "estimator": {
+    "intro": {
+      "title": "Find out your project’s price",
+      "subtitle": "Answer just 4 quick questions and get a tailored price estimate. 100% free, no strings attached",
+      "startButton": "Start Now"
+    },
+    "form": {
+      "title": "Your estimate is ready!",
+      "subtitle": "Fill in your details to receive your custom estimate. We’ll send it directly to your inbox – no spam, no obligation",
+      "nextButton": "Next",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email",
+      "phonePlaceholder": "Phone number",
+      "submitButton": "Get your price"
+    },
+    "consent": {
+      "agree": "I agree to the",
+      "privacyPolicy": "Privacy Policy",
+      "and": "and data processing."
+    },
+    "thanks": {
+      "title": "Thank you for your request!",
+      "message": "We’ve received your details and price estimate.",
+      "followup": "You will soon receive an email with more information – and we’ll reach out if we have any questions or suggestions.",
+      "closeButton": "Close"
+    },
+    "error": {
+      "loadingQuestions": "Error loading questions:"
+    }
+  },
+  "aboutPage": {
+    "titleStart": "About us",
+    "titleEnd": " – Our journey and values",
+    "metaDescription": "Arzonic is a modern software agency specializing in scalable web applications, immersive 3D experiences, and clean digital design.",
+    "textOne": "Arzonic is a creative software agency driven by passion, curiosity, and a shared love for digital craftsmanship. Our team brings together experienced specialists and newly graduated talents, working across web applications, UI/UX, 3D visualization, and animation – all with a focus on building polished and value-driven digital solutions.",
+    "textTwo": "We’re a young startup with big ambitions and an uncompromising approach to quality. Our mindset is fresh and solution-oriented. We come from diverse backgrounds, but we’re united by a desire to create work that works – and resonates. Every project is approached with care and intention, transforming ideas into functional, visually strong solutions with clear user experiences and measurable business impact. Nothing we do is templated – we build with purpose, from the ground up.",
+    "team": [
+      {
+        "name": "Marc Møller",
+        "role": "PM & Frontend Developer",
+        "image": "/team/marc2.png"
+      },
+      {
+        "name": "Mikkel Toft",
+        "role": "3D Artist & UX Designer",
+        "image": "/team/mikkel.png"
+      },
+      {
+        "name": "Sebatian Porsche",
+        "role": "API & Backend Developer",
+        "image": "/team/sebastian.png"
+      }
+    ]
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! The page you are looking for does not exist.",
+    "home": "Go to homepage",
+    "contact": "Get in touch"
+  },
+  "analytics": {
+    "title": "Analytics",
+    "last_7_days": "Last 7 days",
+    "last_30_days": "Last 30 days",
+    "visitors": "Visitors",
+    "pageviews": "Pageviews",
+    "visits": "Visits",
+    "most_visited": "Most Visited",
+    "devices": "Devices",
+    "no_data": "No data",
+    "mobile": "Mobile",
+    "desktop": "Desktop",
+    "laptop": "Laptop",
+    "tablet": "Tablet",
+    "unknown": "Unknown"
+  },
+  "aria": {
+    "edit_user_button": "Edit user {{name}}",
+    "delete_user_button": "Delete user {{name}}",
+    "cancel_button": "Cancel",
+    "nav_settings_setup_tab": "Setup",
+    "nav_settings_users_tab": "Users",
+    "confirm_delete_button": "Confirm deletion",
+    "danishFlag": "Danish flag",
+    "badges": {
+      "customWebsites": "Category: Custom websites",
+      "visualization": "Category: 3D visualization",
+      "webApplications": "Category: Web applications"
+    },
+    "navigation": {
+      "linkToSolutions": "See more solutions",
+      "getStarted": "Get started",
+      "linkToCases": "Go to customer's website",
+      "linkToContact": "Go to contact",
+      "buttonSubmitForm": "Submit form",
+      "linkToOverview": "Go to overview",
+      "linkToContent": "Go to content",
+      "linkToCustomers": "Go to customers",
+      "linkToSettings": "Go to settings",
+      "linkToHome": "Go to homepage"
+    },
+    "topbar": {
+      "moreOptions": "More options",
+      "logout": "Log out"
+    },
+    "estimator": {
+      "nameInput": "Enter your name",
+      "emailInput": "Enter your email",
+      "phoneInput": "Enter your phone number",
+      "submitButton": "Submit the form",
+      "backButton": "Go back to the previous step"
+    },
+    "footer": {
+      "linkToCustomWebsites": "Go to custom websites",
+      "linkToWebApplications": "Go to web applications",
+      "linkTo3DVisualization": "Go to 3D visualization",
+      "linkToDesignAnimation": "Go to design and animation",
+      "linkToAbout": "Go to about us",
+      "linkToContact": "Go to contact",
+      "linkToJobs": "Go to jobs",
+      "linkToFacebook": "Go to Facebook",
+      "linkToInstagram": "Go to Instagram"
+    },
+    "language": {
+      "changeToDanish": "Change language to Danish",
+      "changeToEnglish": "Change language to English"
+    },
+    "faq": {
+      "q1": "Expand FAQ question 1",
+      "q2": "Expand FAQ question 2",
+      "q3": "Expand FAQ question 3",
+      "q4": "Expand FAQ question 4"
+    },
+    "solutionCards": {
+      "custom": "Go to Custom Websites solution",
+      "webapp": "Go to Web Applications solution",
+      "visualization": "Go to 3D Visualization solution",
+      "design": "Go to Design & Animation solution"
+    },
+    "theme": {
+      "switchToLight": "Switch to light theme",
+      "switchToDark": "Switch to dark theme"
+    },
+    "createCase": {
+      "companyName": "Enter company name",
+      "contactPerson": "Enter contact person",
+      "description": "Enter description",
+      "city": "Enter city",
+      "country": "Enter country",
+      "websiteUrl": "Enter website URL",
+      "chooseImage": "Choose image",
+      "create": "Create case",
+      "creating": "Creating case"
+    },
+
+    "cases": {
+      "back": "Back to overview",
+      "createCase": "Create a new case",
+      "caseCreated": "Case was created",
+      "caseUpdated": "Case was updated"
+    },
+    "casesListChange": {
+      "cardsView": "Switch to cards view",
+      "listView": "Switch to list view"
+    },
+    "casesPagination": {
+      "previousPage": "Go to the previous page",
+      "nextPage": "Go to the next page"
+    },
+    "updateReview": {
+      "contactInput": "Enter the contact person's name",
+      "companyInput": "Enter the company name",
+      "descriptionInput": "Enter the review description",
+      "save": "Save review",
+      "saving": "Saving review"
+    },
+    "createRating": {
+      "rate1": "Select rating 1 star",
+      "rate2": "Select rating 2 stars",
+      "rate3": "Select rating 3 stars",
+      "rate4": "Select rating 4 stars",
+      "rate5": "Select rating 5 stars"
+    },
+    "reviews": {
+      "backButton": "Go back",
+      "createReviewButton": "Create a new review"
+    },
+    "reviewsList": {
+      "editButton": "Edit review",
+      "deleteButton": "Delete review",
+      "cancelDeleteButton": "Cancel deletion",
+      "confirmDeleteButton": "Confirm deletion"
+    },
+    "reviewsListChange": {
+      "cardsView": "Switch to cards view",
+      "listView": "Switch to list view"
+    },
+    "reviewsPagination": {
+      "previousPage": "Go to the previous page",
+      "nextPage": "Go to the next page"
+    },
+    "reviewsRating": {
+      "star": "Star number {{index}}"
+    },
+    "navContent": {
+      "casesTab": "Switch to Cases tab",
+      "reviewsTab": "Switch to Reviews tab"
+    },
+    "navMessages": {
+      "requestsTab": "Switch to Requests tab",
+      "bookingsTab": "Switch to Bookings tab"
+    },
+    "requestNote": {
+      "inputNote": "Enter a note",
+      "submitButton": "Add note",
+      "deleteButton": "Delete note"
+    },
+    "updateRequest": {
+      "backButton": "Go back",
+      "companyInput": "Enter company name",
+      "mailInput": "Enter email address",
+      "mobileInput": "Enter mobile number",
+      "categorySelect": "Select task category",
+      "nameInput": "Enter contact person's name",
+      "addressInput": "Enter address and house number",
+      "cityInput": "Enter postal code and city",
+      "messageTextarea": "Enter message",
+      "submitButton": "Update customer"
+    },
+    "requests": {
+      "backButton": "Go back to the overview",
+      "deleteSelectedButton": "Delete selected requests",
+      "searchInput": "Search for requests"
+    },
+    "requestsActions": {
+      "editButton": "Edit customer",
+      "deleteButton": "Delete customer",
+      "dropdownMenu": "Open actions for customer"
+    },
+    "requestsDetails": {
+      "phoneLink": "Call the customer",
+      "mapLink": "Open customer's address on Google Maps",
+      "backButton": "Go back to the requests list"
+    },
+    "requestsList": {
+      "selectAllCheckbox": "Select all requests",
+      "individualCheckbox": "Select request",
+      "detailsButton": "View details for request"
+    },
+    "overview": {
+      "last7DaysTab": "View statistics for the last 7 days",
+      "last30DaysTab": "View statistics for the last 30 days",
+      "loadingSpinner": "Loading statistics"
+    },
+    "register": {
+      "nameInput": "Enter your name",
+      "emailInput": "Enter your email address",
+      "passwordInput": "Enter your password"
+    }
+  }
+}

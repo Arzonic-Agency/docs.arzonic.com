@@ -1,0 +1,210 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "Dark";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: #111;
+  --color-base-200: #171717;
+  --color-base-300: #202020;
+  --color-base-content: #E4E4E4;
+  --color-primary: #048179;
+  --color-primary-content: oklch(98% 0.003 247.858);
+  --color-secondary: #0AA197;
+  --color-secondary-content: #E4E4E4;
+  --color-accent: oklch(27% 0.046 192.524);
+  --color-accent-content: oklch(98% 0 0);
+  --color-neutral: #111;
+  --color-neutral-content: #E4E4E4;
+  --color-info: oklch(50% 0.134 242.749);
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: #177512;
+  --color-success-content: oklch(27% 0.072 132.109);
+  --color-warning: #AE9F17;
+  --color-warning-content: oklch(28% 0.066 53.813);
+  --color-error: oklch(45% 0.188 13.697);
+  --color-error-content: #E4E4E4;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.28125rem;
+  --border: 2px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "Light";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: #EAEAEB;
+  --color-base-200: #F8FAFC;
+  --color-base-300: oklch(87% 0.006 286.286);
+  --color-base-content: #171717;
+  --color-primary: oklch(51% 0.096 186.391);
+  --color-primary-content: oklch(98% 0.003 247.858);
+  --color-secondary: #51B2AA;
+  --color-secondary-content: #FCFFFC;
+  --color-accent: oklch(77% 0.152 181.912);
+  --color-accent-content: oklch(100% 0 0);
+  --color-neutral: oklch(14% 0.005 285.823);
+  --color-neutral-content: oklch(98% 0.002 247.839);
+  --color-info: oklch(68% 0.169 237.323);
+  --color-info-content: oklch(28% 0.091 267.935);
+  --color-success: oklch(62% 0.194 149.214);
+  --color-success-content: oklch(27% 0.072 132.109);
+  --color-warning: oklch(79% 0.184 86.047);
+  --color-warning-content: oklch(28% 0.066 53.813);
+  --color-error: #D82E2E;
+  --color-error-content: #F2F3F5;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.28125rem;
+  --border: 1.5px;
+  --depth: 1;
+  --noise: 0;
+}
+
+
+/* NavProcess */
+.nav-process {
+  @apply w-full bg-base-100 z-10;
+}
+
+.nav-process.sticky {
+  @apply fixed top-0 left-0 right-0 shadow-md w-full;
+}
+
+.nav-process-content {
+  @apply container mx-auto text-center;
+}
+
+/* læg overflow-hidden så fill ikke stikker udenfor */
+.progress-bar-container {
+  @apply w-full bg-base-200 h-[6px] mt-2 rounded-full overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-full bg-secondary rounded-full;
+}
+
+
+.background-animation-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+
+  background-image:
+    radial-gradient(circle at 30% 40%, #3b938d18 0%, transparent 15%),
+    radial-gradient(circle at 20% 70%, #3B938D44 0%, transparent 15%),
+    radial-gradient(circle at 40% 50%, #3B938D22 0%, transparent 17%);
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  animation: moveBackground 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+
+
+@keyframes moveBackground {
+  0% {
+    background-position: 30% 40%, 20% 70%, 40% 50%;
+  }
+
+  50% {
+    background-position: 50% 30%, 30% 80%, 35% 60%;
+  }
+
+  100% {
+    background-position: 30% 40%, 20% 70%, 40% 50%;
+  }
+}
+
+.background-fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to bottom, transparent, #111);
+  pointer-events: none;
+}
+
+.bg-one,
+.bg-two {
+  background-image: url('/backgrounds/noise.svg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-one>*,
+.bg-two>* {
+  position: relative;
+  z-index: 1;
+}
+
+
+@-moz-document url-prefix() {
+
+  .bg-one,
+  .bg-two {
+    background-image: none;
+  }
+
+  .bg-one::before,
+  .bg-two::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/backgrounds/noise-ff.svg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #1717177a;
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+
+/* Bullet & number list fix */
+.tiptap-list-style ul {
+  padding-left: 0.7rem;
+  list-style-position: inside;
+}
+
+.tiptap-list-style ul>li {
+  list-style-type: disc;
+  display: list-item;
+}
+
+
+.tiptap-list-style li>p {
+  margin: 0;
+  display: inline;
+}
+
+.tiptap-list-style h3 {
+  @apply text-lg font-bold mt-3 mb-2;
+}
+
+.tiptap-list-style h4 {
+  @apply text-lg font-medium mt-2 mb-1;
+}
