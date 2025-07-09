@@ -2,8 +2,6 @@ import Link from "next/link";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { FaFacebook, FaHashtag, FaInstagram } from "react-icons/fa6";
-import ConsentModal from "../modal/ConsentModal";
-import TermsModal from "../modal/TermsModal";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -80,8 +78,8 @@ const Footer = () => {
         </nav>
         <nav>
           <h5 className="footer-title">{t("Footer.legal", "Legal")}</h5>
-          <TermsModal buttonText={t("terms_of_service")} variant="hover" />
-          <ConsentModal buttonText={t("privacy_policy")} variant="hover" />
+          {/* <TermsModal buttonText={t("terms_of_service")} variant="hover" />
+          <ConsentModal buttonText={t("privacy_policy")} variant="hover" /> */}
         </nav>
       </footer>
       <footer className="footer bg-base-100 text-base-content px-10 py-4">
