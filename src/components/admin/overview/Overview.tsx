@@ -3,9 +3,17 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+interface AnalyticsData {
+  pageviews: number;
+  visitors: number;
+  visits: number;
+  pages: Array<{ x: string; y: number }>;
+  devices: Array<{ x: string; y: number }>;
+}
+
 const Overview = () => {
   const { t } = useTranslation();
-  const [data, setData] = useState({
+  const [data, setData] = useState<AnalyticsData>({
     pageviews: 0,
     visitors: 0,
     visits: 0,
@@ -21,7 +29,13 @@ const Overview = () => {
       try {
         const response = await fetch(`/api/umami?period=${period}`);
         const result = await response.json();
-        setData(result);
+        setData({
+          pageviews: result.pageviews || 0,
+          visitors: result.visitors || 0,
+          visits: result.visits || 0,
+          pages: Array.isArray(result.pages) ? result.pages : [],
+          devices: Array.isArray(result.devices) ? result.devices : [],
+        });
       } catch (error) {
         console.error("Failed to fetch analytics", error);
       } finally {
@@ -93,7 +107,7 @@ const Overview = () => {
           <div className="flex justify-start items-center h-32 gap-3">
             <span className="loading loading-spinner loading-md" />
           </div>
-        ) : data.pages.length > 0 ? (
+        ) : Array.isArray(data.pages) && data.pages.length > 0 ? (
           <ul className="flex flex-col gap-3 mt-3">
             {data.pages.map((page, index) => (
               <li
@@ -115,10 +129,10 @@ const Overview = () => {
           <div className="flex justify-start items-center h-32 gap-3">
             <span className="loading loading-spinner loading-md" />
           </div>
-        ) : data.devices.length > 0 ? (
+        ) : Array.isArray(data.devices) && data.devices.length > 0 ? (
           <ul className="flex flex-col gap-3 mt-3">
             {data.devices.map((device, index) => {
-              const deviceMapping = {
+              const deviceMapping: Record<string, string> = {
                 mobile: t("analytics.mobile"),
                 desktop: t("analytics.desktop"),
                 laptop: t("analytics.laptop"),
