@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@supabase/ssr": "^0.6.1",
+    "@tiptap/react": "^2.26.0",
+    "@tiptap/starter-kit": "^2.26.0",
     "@types/i18next": "^12.1.0",
     "cheerio": "^1.1.0",
     "daisyui": "^5.0.46",

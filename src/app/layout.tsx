@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   description:
     "We specialize in building high-performance webapplications and immersive 3D experiences using modern, custom-built technology",
   metadataBase: new URL("https://arzonic.com"),
-  manifest: "/manifest.json",
   openGraph: {
     title: "Arzonic",
     description:
