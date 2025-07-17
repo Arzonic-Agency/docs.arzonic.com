@@ -2,18 +2,18 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { FaPen, FaTrash } from "react-icons/fa6";
-import UpdateCase from "./updateCase/UpdateCase";
 import { useTranslation } from "react-i18next";
-import { deleteCase } from "@/lib/server/actions";
+import { deleteSection } from "@/lib/server/actions";
+import UpdateSection from "./updateSection/UpdateCase";
 
-interface CasesListProps {
+interface SectionsListProps {
   view: "cards" | "list";
   page: number;
   setTotal: (total: number) => void;
-  onEditCase: (caseId: number) => void;
+  onEditSection: (sectionId: number) => void;
 }
 
-interface CaseItem {
+interface SectionItem {
   id: number;
   company: string;
   desc: string;
@@ -22,25 +22,25 @@ interface CaseItem {
 
 const FALLBACK_IMAGE = "/demo.jpg";
 
-const CasesList = ({ view, page, setTotal, onEditCase }: CasesListProps) => {
+const SectionsList = ({ view, page, setTotal, onEditSection }: SectionsListProps) => {
   const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState(true);
-  const [caseItems, setCaseItems] = useState<CaseItem[]>([]);
-  const [editingCaseId, setEditingCaseId] = useState<number | null>(null);
-  const [deletingCaseId, setDeletingCaseId] = useState<number | null>(null);
+  const [sectionItems, setSectionItems] = useState<SectionItem[]>([]);
+  const [editingSectionId, setEditingSectionId] = useState<number | null>(null);
+  const [deletingSectionId, setDeletingSectionId] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const fetchCases = useCallback(async () => {
+  const fetchSections = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/cases?page=${page}&lang=${i18n.language}`);
-      if (!res.ok) throw new Error("Failed to load cases");
-      const { cases, total } = await res.json();
-      setCaseItems(cases);
+      const res = await fetch(`/api/sections?page=${page}&lang=${i18n.language}`);
+      if (!res.ok) throw new Error("Failed to load sections");
+      const { sections, total } = await res.json();
+      setSectionItems(sections);
       setTotal(total);
     } catch (err) {
-      console.error("Failed to fetch cases:", err);
-      setCaseItems([]);
+      console.error("Failed to fetch sections:", err);
+      setSectionItems([]);
       setTotal(0);
     } finally {
       setLoading(false);
@@ -48,31 +48,31 @@ const CasesList = ({ view, page, setTotal, onEditCase }: CasesListProps) => {
   }, [page, setTotal, i18n.language]);
 
   useEffect(() => {
-    fetchCases();
-  }, [fetchCases]);
+    fetchSections();
+  }, [fetchSections]);
 
   const truncate = (text: string | null | undefined, max: number) =>
     text && text.length > max ? text.slice(0, max) + "…" : text || "";
 
-  const handleCaseUpdated = () => {
-    setEditingCaseId(null);
-    fetchCases();
+  const handleSectionUpdated = () => {
+    setEditingSectionId(null);
+    fetchSections();
   };
 
   const handleDelete = async () => {
-    if (deletingCaseId == null) return;
+    if (deletingSectionId == null) return;
     try {
-      await deleteCase(deletingCaseId);
-      setDeletingCaseId(null);
+      await deleteSection(deletingSectionId);
+      setDeletingSectionId(null);
       setIsModalOpen(false);
-      fetchCases();
+      fetchSections();
     } catch (err) {
-      console.error("Failed to delete case:", err);
+      console.error("Failed to delete section:", err);
     }
   };
 
   const closeModal = () => {
-    setDeletingCaseId(null);
+    setDeletingSectionId(null);
     setIsModalOpen(false);
   };
 
@@ -80,22 +80,22 @@ const CasesList = ({ view, page, setTotal, onEditCase }: CasesListProps) => {
     return (
       <div className="flex justify-center gap-3 items-center w-full">
         <span className="loading loading-spinner loading-md h-40" />
-        {t("loading_cases")}
+        {t("loading_sections")}
       </div>
     );
   }
 
-  if (caseItems.length === 0) {
+  if (sectionItems.length === 0) {
     return (
       <div className="flex justify-center items-center h-40">
-        <p className="text-lg text-gray-500">{t("no_cases")}</p>
+        <p className="text-lg text-gray-500">{t("no_sections")}</p>
       </div>
     );
   }
 
-  if (editingCaseId) {
+  if (editingSectionId) {
     return (
-      <UpdateCase caseId={editingCaseId} onCaseUpdated={handleCaseUpdated} />
+      <UpdateSection sectionId={editingSectionId} onSectionUpdated={handleSectionUpdated} />
     );
   }
 
@@ -103,7 +103,7 @@ const CasesList = ({ view, page, setTotal, onEditCase }: CasesListProps) => {
     <div className="w-full">
       {view === "cards" ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {caseItems.map((item) => (
+          {sectionItems.map((item) => (
             <div
               key={item.id}
               className="card card-compact shadow-md bg-base-300 rounded-lg ring-base-300 ring-3 md:ring-5"
@@ -111,7 +111,7 @@ const CasesList = ({ view, page, setTotal, onEditCase }: CasesListProps) => {
               <figure className="relative w-full aspect-[4/3] overflow-hidden">
                 <Image
                   src={item.image || FALLBACK_IMAGE}
-                  alt={`Case study for ${item.company}`}
+                  alt={`Section for ${item.company}`}
                   fill
                   priority={page === 1}
                   className="object-cover"
@@ -123,14 +123,14 @@ const CasesList = ({ view, page, setTotal, onEditCase }: CasesListProps) => {
                 <div className="card-actions justify-end mt-2">
                   <button
                     className="btn btn-sm"
-                    onClick={() => onEditCase(item.id)}
+                    onClick={() => onEditSection(item.id)}
                   >
                     <FaPen /> {t("edit")}
                   </button>
                   <button
                     className="btn btn-sm"
                     onClick={() => {
-                      setDeletingCaseId(item.id);
+                      setDeletingSectionId(item.id);
                       setIsModalOpen(true);
                     }}
                   >
@@ -143,14 +143,14 @@ const CasesList = ({ view, page, setTotal, onEditCase }: CasesListProps) => {
         </div>
       ) : (
         <ul className="flex flex-col gap-5">
-          {caseItems.map((item) => (
+          {sectionItems.map((item) => (
             <li key={item.id}>
               <div className="flex justify-between items-center">
                 <div className="flex gap-2 items-center">
                   <div className="relative w-12 h-10 rounded-md overflow-hidden">
                     <Image
                       src={item.image || FALLBACK_IMAGE}
-                      alt={`Case study for ${item.company}`}
+                      alt={`Section for ${item.company}`}
                       fill
                       priority={page === 1}
                       className="object-cover"
@@ -166,7 +166,7 @@ const CasesList = ({ view, page, setTotal, onEditCase }: CasesListProps) => {
                 <div className="flex gap-5 md:gap-2">
                   <button
                     className="btn btn-sm"
-                    onClick={() => onEditCase(item.id)}
+                    onClick={() => onEditSection(item.id)}
                   >
                     <FaPen />{" "}
                     <span className="md:flex hidden">{t("edit")}</span>
@@ -174,7 +174,7 @@ const CasesList = ({ view, page, setTotal, onEditCase }: CasesListProps) => {
                   <button
                     className="btn btn-sm"
                     onClick={() => {
-                      setDeletingCaseId(item.id);
+                      setDeletingSectionId(item.id);
                       setIsModalOpen(true);
                     }}
                   >
@@ -188,14 +188,14 @@ const CasesList = ({ view, page, setTotal, onEditCase }: CasesListProps) => {
         </ul>
       )}
 
-      {isModalOpen && deletingCaseId != null && (
+      {isModalOpen && deletingSectionId != null && (
         <div className="modal modal-open">
           <div className="modal-box">
             <h3 className="font-bold text-lg">
-              {t("delete_case_confirmation")}
+              {t("delete_section_confirmation")}
             </h3>
-            <p className="py-4">{t("delete_case_prompt")}</p>
-            <p className="text-sm text-warning">{t("delete_case_warning")}</p>
+            <p className="py-4">{t("delete_section_prompt")}</p>
+            <p className="text-sm text-warning">{t("delete_section_warning")}</p>
             <div className="modal-action">
               <button className="btn" onClick={closeModal}>
                 {t("cancel")}
@@ -211,4 +211,4 @@ const CasesList = ({ view, page, setTotal, onEditCase }: CasesListProps) => {
   );
 };
 
-export default CasesList;
+export default SectionsList;

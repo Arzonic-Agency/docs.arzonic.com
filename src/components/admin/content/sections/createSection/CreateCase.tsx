@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { createCase } from "@/lib/server/actions";
+import { createSection } from "@/lib/server/actions";
 import { useTranslation } from "react-i18next";
 
-const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
+const CreateSection = ({ onSectionCreated }: { onSectionCreated: () => void }) => {
   const { t } = useTranslation();
   const [company, setCompany] = useState("");
   const [desc, setDesc] = useState("");
@@ -23,7 +23,7 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleCreateCase = async (e: React.FormEvent) => {
+  const handleCreateSection = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
@@ -42,13 +42,12 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
     }
 
     try {
-      await createCase({
+      await createSection({
         company,
         desc,
         city,
         country,
         contact,
-        image,
         website,
       });
 
@@ -60,7 +59,7 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
       setContact("");
       setImage(null);
       setWebsite("");
-      onCaseCreated();
+      onSectionCreated();
     } catch (error) {
       console.error(error);
       if (error instanceof Error) {
@@ -82,9 +81,9 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
 
   return (
     <div className="flex flex-col gap-3 w-full p-3">
-      <span className="text-lg font-bold">{t("case_creation")}</span>
+      <span className="text-lg font-bold">{t("section_creation")}</span>
       <form
-        onSubmit={handleCreateCase}
+        onSubmit={handleCreateSection}
         className="flex flex-col items-start gap-5 w-full"
       >
         <div className="flex flex-col lg:flex-row gap-5 lg:gap-14 w-full">
@@ -99,7 +98,7 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 required
-                aria-label={t("aria.createCase.companyName")}
+                aria-label={t("aria.createSection.companyName")}
               />
               {errors.company && (
                 <span className="absolute -bottom-4 text-xs text-red-500">
@@ -118,7 +117,7 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
                 required
-                aria-label={t("aria.createCase.contactPerson")}
+                aria-label={t("aria.createSection.contactPerson")}
               />
               {errors.contact && (
                 <span className="absolute -bottom-4 text-xs text-red-500">
@@ -139,7 +138,7 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
                 style={{ resize: "none" }}
                 cols={30}
                 rows={8}
-                aria-label={t("aria.createCase.description")}
+                aria-label={t("aria.createSection.description")}
               ></textarea>
               <div className="text-right text-xs font-medium text-zinc-500">
                 {desc.length} / 500
@@ -162,7 +161,7 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 required
-                aria-label={t("aria.createCase.city")}
+                aria-label={t("aria.createSection.city")}
               />
               {errors.city && (
                 <span className="absolute -bottom-4 text-xs text-red-500">
@@ -181,7 +180,7 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
                 required
-                aria-label={t("aria.createCase.country")}
+                aria-label={t("aria.createSection.country")}
               />
               {errors.country && (
                 <span className="absolute -bottom-4 text-xs text-red-500">
@@ -198,7 +197,7 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
                 placeholder={t("write_website_url")}
                 value={website}
                 onChange={(e) => setWebsite(e.target.value)}
-                aria-label={t("aria.createCase.websiteUrl")}
+                aria-label={t("aria.createSection.websiteUrl")}
               />
               {errors.website && (
                 <span className="absolute -bottom-4 text-xs text-red-500">
@@ -214,7 +213,7 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
                 className="file-input file-input-bordered file-input-md w-full"
                 onChange={(e) => setImage(e.target.files?.[0] || null)}
                 required
-                aria-label={t("aria.createCase.chooseImage")}
+                aria-label={t("aria.createSection.chooseImage")}
               />
               {errors.image && (
                 <span className="absolute -bottom-4 text-xs text-red-500">
@@ -230,8 +229,8 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
           disabled={loading}
           aria-label={
             loading
-              ? t("aria.createCase.creating")
-              : t("aria.createCase.create")
+              ? t("aria.createSection.creating")
+              : t("aria.createSection.create")
           }
         >
           {loading ? t("creating") : t("create")}
@@ -241,4 +240,4 @@ const CreateCase = ({ onCaseCreated }: { onCaseCreated: () => void }) => {
   );
 };
 
-export default CreateCase;
+export default CreateSection;

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { updateCase, getCaseById } from "@/lib/server/actions";
+import { updateSection, getSectionById } from "@/lib/server/actions";
 import Image from "next/image";
 import { t } from "i18next";
 
-const UpdateCase = ({
-  caseId,
-  onCaseUpdated,
+const UpdateSection = ({
+  sectionId,
+  onSectionUpdated,
 }: {
-  caseId: number;
-  onCaseUpdated: () => void;
+  sectionId: number;
+  onSectionUpdated: () => void;
 }) => {
   const [company, setCompany] = useState("");
   const [desc, setDesc] = useState("");
@@ -35,35 +35,35 @@ const UpdateCase = ({
   const [createdAt, setCreatedAt] = useState<string>("");
 
   useEffect(() => {
-    const fetchCase = async () => {
+    const fetchSection = async () => {
       try {
-        const caseData = await getCaseById(caseId);
-        if (!caseData) {
-          console.error(t("case_not_found"));
+        const sectionData = await getSectionById(sectionId);
+        if (!sectionData) {
+          console.error(t("section_not_found"));
           return;
         }
-        setCompany(caseData.company || "");
-        setDesc(caseData.desc || "");
-        setCity(caseData.city || "");
-        setCountry(caseData.country || "");
-        setExistingImage(caseData.image || null);
-        setContact(caseData.contact || "");
-        setWebsite(caseData.website || "");
+        setCompany(sectionData.company || "");
+        setDesc(sectionData.desc || "");
+        setCity(sectionData.city || "");
+        setCountry(sectionData.country || "");
+        setExistingImage(sectionData.image || null);
+        setContact(sectionData.contact || "");
+        setWebsite(sectionData.website || "");
 
         setCreatedAt(
-          caseData.created_at
-            ? new Date(caseData.created_at).toISOString().split("T")[0]
+          sectionData.created_at
+            ? new Date(sectionData.created_at).toISOString().split("T")[0]
             : ""
         );
       } catch (error) {
-        console.error(t("failed_to_fetch_case"), error);
+        console.error(t("failed_to_fetch_section"), error);
       }
     };
 
-    fetchCase();
-  }, [caseId]);
+    fetchSection();
+  }, [sectionId]);
 
-  const handleUpdateCase = async (e: React.FormEvent) => {
+  const handleUpdateSection = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
@@ -84,7 +84,7 @@ const UpdateCase = ({
 
     try {
       const formData = new FormData();
-      formData.append("caseId", caseId.toString());
+      formData.append("sectionId", sectionId.toString());
       formData.append("company", company);
       formData.append("desc", desc);
       formData.append("city", city);
@@ -96,19 +96,19 @@ const UpdateCase = ({
 
       if (image) formData.append("image", image);
 
-      await updateCase(
-        caseId,
+      await updateSection(
+        sectionId,
         company,
         desc,
         city,
         country,
         contact,
-        image || undefined,
+
         createdAt,
         website
       );
 
-      onCaseUpdated();
+      onSectionUpdated();
       setShowToast(true);
       setTimeout(() => setShowToast(false), 3000);
     } catch (error) {
@@ -132,10 +132,10 @@ const UpdateCase = ({
 
   return (
     <div className="flex flex-col gap-3 w-full p-3">
-      <span className="text-lg font-bold">{t("case_editing")}</span>
+      <span className="text-lg font-bold">{t("section_editing")}</span>
 
       <form
-        onSubmit={handleUpdateCase}
+        onSubmit={handleUpdateSection}
         className="flex flex-col items-start gap-5 w-full"
       >
         <div className="flex flex-col lg:flex-row gap-5 lg:gap-14 w-full">
@@ -182,7 +182,7 @@ const UpdateCase = ({
                 value={desc}
                 onChange={handleDescChange}
                 required
-                placeholder={t("write_case_description")}
+                placeholder={t("write_section_description")}
                 style={{ resize: "none" }}
                 cols={30}
                 rows={8}
@@ -303,7 +303,7 @@ const UpdateCase = ({
       {showToast && (
         <div className="toast bottom-20 md:bottom-0 toast-end">
           <div className="alert alert-success text-neutral-content">
-            <span className="text-base md:text-lg">{t("case_updated")}</span>
+            <span className="text-base md:text-lg">{t("section_updated")}</span>
           </div>
         </div>
       )}
@@ -311,4 +311,4 @@ const UpdateCase = ({
   );
 };
 
-export default UpdateCase;
+export default UpdateSection;

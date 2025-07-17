@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
-interface ReviewListChangeProps {
+interface SectionsListChangeProps {
   onViewChange: (view: "cards" | "list") => void;
 }
 
-const ReviewsListChange = ({ onViewChange }: ReviewListChangeProps) => {
+const SectionsListChange = ({ onViewChange }: SectionsListChangeProps) => {
+  const { t } = useTranslation();
   const [activeView, setActiveView] = useState<"cards" | "list">("cards");
 
   const handleViewChange = (view: "cards" | "list") => {
@@ -17,17 +18,21 @@ const ReviewsListChange = ({ onViewChange }: ReviewListChangeProps) => {
     <div role="tablist" className="tabs tabs-border">
       <a
         role="tab"
-        className={`tab ${activeView === "cards" ? "tab-active" : ""}`}
+        className={`tab ${
+          activeView === "cards" ? "tab-active rounded-lg" : ""
+        }`}
         onClick={() => handleViewChange("cards")}
-        aria-label={t("aria.reviewsListChange.cardsView")}
+        aria-label={t("aria.sectionsListChange.cardsView")}
       >
         {t("cards")}
       </a>
       <a
         role="tab"
-        className={`tab ${activeView === "list" ? "tab-active" : ""}`}
+        className={`tab ${
+          activeView === "list" ? "tab-active tab-active rounded-lg" : ""
+        }`}
         onClick={() => handleViewChange("list")}
-        aria-label={t("aria.reviewsListChange.listView")}
+        aria-label={t("aria.sectionsListChange.listView")}
       >
         {t("list")}
       </a>
@@ -35,4 +40,4 @@ const ReviewsListChange = ({ onViewChange }: ReviewListChangeProps) => {
   );
 };
 
-export default ReviewsListChange;
+export default SectionsListChange;

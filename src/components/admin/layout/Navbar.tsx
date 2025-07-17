@@ -52,15 +52,6 @@ const Navbar = () => {
                 {t("content")}
               </Link>
             </li>
-            <li>
-              <Link
-                className={pathname === "/admin/messages" ? "menu-active" : ""}
-                href="/admin/messages"
-                aria-label={t("aria.navigation.linkToCustomers")}
-              >
-                {t("customers")}
-              </Link>
-            </li>
             {role === "admin" && (
               <li>
                 <Link
@@ -94,15 +85,6 @@ const Navbar = () => {
                 aria-label={t("aria.navigation.linkToContent")}
               >
                 <FaList size={25} />
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/admin/messages"
-                className={pathname === "/admin/messages" ? "active" : ""}
-                aria-label={t("aria.navigation.linkToCustomers")}
-              >
-                <FaComment size={25} />
               </Link>
             </li>
             <li>

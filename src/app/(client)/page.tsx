@@ -1,7 +1,11 @@
 "use client";
 
+import Section from "@/components/client/home/Section";
+
 const page = () => {
-  return <></>;
+  return <>
+    <Section />
+  </>;
 };
 
 export default page;

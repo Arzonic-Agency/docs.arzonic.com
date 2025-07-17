@@ -2,19 +2,19 @@
 
 import React, { useState } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
-import CasesPagination from "./CasesPagination";
-import CreateCase from "./createCase/CreateCase";
-import UpdateCase from "./updateCase/UpdateCase";
-import CasesListChange from "./CasesListChange";
-import CasesList from "./CasesList";
+import SectionsPagination from "./SectionsPagination";
+import SectionsListChange from "./SectionsListChange";
+import SectionsList from "./SectionsList";
 import { useTranslation } from "react-i18next";
+import CreateSection from "./createSection/CreateCase";
+import UpdateSection from "./updateSection/UpdateCase";
 
-const Cases = () => {
+const Sections = () => {
   const { t } = useTranslation();
   const [view, setView] = useState<"cards" | "list">("cards");
-  const [showCreateCase, setShowCreateCase] = useState(false);
-  const [showUpdateCase, setShowUpdateCase] = useState(false);
-  const [selectedCaseId, setSelectedCaseId] = useState<number | null>(null);
+  const [showCreateSection, setShowCreateSection] = useState(false);
+  const [showUpdateSection, setShowUpdateSection] = useState(false);
+  const [selectedSectionId, setSelectedSectionId] = useState<number | null>(null);
   const [showToast, setShowToast] = useState(false);
   const [page, setPage] = useState<number>(1);
   const [total, setTotal] = useState<number>(0);
@@ -23,71 +23,71 @@ const Cases = () => {
     setView(view);
   };
 
-  const handleCaseCreated = () => {
-    setShowCreateCase(false);
+  const handleSectionCreated = () => {
+    setShowCreateSection(false);
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
   };
 
-  const handleCaseUpdated = () => {
-    setShowUpdateCase(false);
+  const handleSectionUpdated = () => {
+    setShowUpdateSection(false);
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
   };
 
   return (
     <div className="flex flex-col md:items-start gap-7">
-      {showCreateCase ? (
+      {showCreateSection ? (
         <div className="flex flex-col items-start gap-5">
           <button
-            onClick={() => setShowCreateCase(false)}
+            onClick={() => setShowCreateSection(false)}
             className="btn btn-ghost"
-            aria-label={t("aria.cases.back")}
+            aria-label={t("aria.sections.back")}
           >
             <FaAngleLeft />
             {t("back")}
           </button>
-          <CreateCase onCaseCreated={handleCaseCreated} />
+          <CreateSection onSectionCreated={handleSectionCreated} />
         </div>
-      ) : showUpdateCase && selectedCaseId !== null ? (
+      ) : showUpdateSection && selectedSectionId !== null ? (
         <div className="flex flex-col items-start gap-5">
           <button
-            onClick={() => setShowUpdateCase(false)}
+            onClick={() => setShowUpdateSection(false)}
             className="btn btn-ghost"
-            aria-label={t("aria.cases.back")}
+            aria-label={t("aria.sections.back")}
           >
             <FaAngleLeft />
             {t("back")}
           </button>
-          <UpdateCase
-            caseId={selectedCaseId}
-            onCaseUpdated={handleCaseUpdated}
+          <UpdateSection
+            sectionId={selectedSectionId}
+            onSectionUpdated={handleSectionUpdated}
           />
         </div>
       ) : (
         <>
           <div className="flex justify-between items-center w-full">
             <button
-              onClick={() => setShowCreateCase(true)}
+              onClick={() => setShowCreateSection(true)}
               className="btn btn-primary"
-              aria-label={t("aria.cases.createCase")}
+              aria-label={t("aria.sections.createSection")}
             >
-              {t("create")} Case
+              {t("create")} Section
             </button>
-            <CasesListChange onViewChange={handleViewChange} />
+            <SectionsListChange onViewChange={handleViewChange} />
           </div>
-          <CasesList
+          <SectionsList
             view={view}
             page={page}
             setTotal={setTotal}
-            onEditCase={(caseId: number) => {
-              setSelectedCaseId(caseId);
-              setShowUpdateCase(true);
+            onEditSection={(sectionId: number) => {
+              setSelectedSectionId(sectionId);
+              setShowUpdateSection(true);
             }}
           />
           <div className="flex w-full justify-center">
             {total > 6 && (
-              <CasesPagination page={page} setPage={setPage} total={total} />
+              <SectionsPagination page={page} setPage={setPage} total={total} />
             )}
           </div>
         </>
@@ -97,13 +97,13 @@ const Cases = () => {
           <div
             className="alert alert-success text-neutral-content"
             aria-label={
-              showCreateCase
-                ? t("aria.cases.caseCreated")
-                : t("aria.cases.caseUpdated")
+              showCreateSection
+                ? t("aria.sections.sectionCreated")
+                : t("aria.sections.sectionUpdated")
             }
           >
             <span className="text-base md:text-lg">
-              {showCreateCase ? t("case_created") : t("case_updated")}
+              {showCreateSection ? t("section_created") : t("section_updated")}
             </span>
           </div>
         </div>
@@ -112,4 +112,4 @@ const Cases = () => {
   );
 };
 
-export default Cases;
+export default Sections;

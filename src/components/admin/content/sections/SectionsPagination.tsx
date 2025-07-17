@@ -2,13 +2,13 @@ import React from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 
-interface NewsPaginationProps {
+interface SectionsPaginationProps {
   page: number;
   setPage: (page: number) => void;
   total: number;
 }
 
-const CasesPagination = ({ page, setPage, total }: NewsPaginationProps) => {
+const SectionsPagination = ({ page, setPage, total }: SectionsPaginationProps) => {
   const { t } = useTranslation();
   const totalPages = Math.ceil(total / 6);
 
@@ -30,7 +30,7 @@ const CasesPagination = ({ page, setPage, total }: NewsPaginationProps) => {
         className="join-item btn bg-base-100"
         onClick={handlePrevious}
         disabled={page === 1}
-        aria-label={t("aria.casesPagination.previousPage")}
+        aria-label={t("aria.sectionsPagination.previousPage")}
       >
         <FaAngleLeft />
       </button>
@@ -41,7 +41,7 @@ const CasesPagination = ({ page, setPage, total }: NewsPaginationProps) => {
         className="join-item btn bg-base-100"
         onClick={handleNext}
         disabled={page >= totalPages}
-        aria-label={t("aria.casesPagination.nextPage")}
+        aria-label={t("aria.sectionsPagination.nextPage")}
       >
         <FaAngleRight />
       </button>
@@ -49,4 +49,4 @@ const CasesPagination = ({ page, setPage, total }: NewsPaginationProps) => {
   );
 };
 
-export default CasesPagination;
+export default SectionsPagination;

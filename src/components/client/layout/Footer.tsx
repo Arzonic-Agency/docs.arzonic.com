@@ -12,7 +12,7 @@ const Footer = () => {
         <nav>
           <h5 className="footer-title">{t("Footer.solutions")}</h5>
           <Link
-            href="/solutions/custom-websites"
+            href="https://arsonic.com/solutions/custom-websites"
             className="link link-hover"
             aria-label={t(
               "aria.footer.linkToCustomWebsites",
@@ -22,7 +22,7 @@ const Footer = () => {
             {t("Header.dropdown.customWebsites")}
           </Link>
           <Link
-            href="/solutions/web-applications"
+            href="https://arsonic.com/solutions/web-applications"
             className="link link-hover"
             aria-label={t(
               "aria.footer.linkToWebApplications",
@@ -32,7 +32,7 @@ const Footer = () => {
             {t("Header.dropdown.webApplications")}
           </Link>
           <Link
-            href="/solutions/3d-visualization"
+            href="https://arsonic.com/solutions/3d-visualization"
             className="link link-hover"
             aria-label={t(
               "aria.footer.linkTo3DVisualization",
@@ -42,7 +42,7 @@ const Footer = () => {
             {t("Header.dropdown.visualization")}
           </Link>
           <Link
-            href="/solutions/design-animation"
+            href="https://arsonic.com/solutions/design-animation"
             className="link link-hover"
             aria-label={t(
               "aria.footer.linkToDesignAnimation",
@@ -55,21 +55,21 @@ const Footer = () => {
         <nav>
           <h5 className="footer-title">{t("Footer.aboutUs")}</h5>
           <Link
-            href="/about"
+            href="https://arsonic.com/about"
             className="link link-hover"
             aria-label={t("aria.footer.linkToAbout", "Go to about us")}
           >
             {t("about")}
           </Link>
           <Link
-            href="/contact"
+            href="https://arsonic.com/contact"
             className="link link-hover"
             aria-label={t("aria.footer.linkToContact", "Go to contact")}
           >
             {t("contact")}
           </Link>
           <Link
-            href="/jobs"
+            href="https://arsonic.com/jobs"
             className="link link-hover"
             aria-label={t("aria.footer.linkToJobs", "Go to jobs")}
           >

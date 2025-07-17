@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { FaRegNewspaper, FaStar } from "react-icons/fa6";
-import Cases from "./cases/Cases";
-import Reviews from "./reviews/Reviews";
+import Cases from "./sections/Sections";
+//import Reviews from "./reviews/Reviews";
 import { useTranslation } from "react-i18next";
 
 const NavContent = () => {
@@ -51,7 +51,7 @@ const NavContent = () => {
         )}
         {activeTab === "reviews" && (
           <div className="bg-base-200  rounded-lg shadow-md p-5 md:p-7">
-            <Reviews />
+            {/* <Reviews /> */}
           </div>
         )}
       </div>

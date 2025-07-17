@@ -278,10 +278,10 @@ export async function updateUser(
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// CASES
+// SECTIONS
 // ─────────────────────────────────────────────────────────────────────────────
 
-export async function createCase({
+export async function createSection({
   company,
   desc,
   city,
@@ -364,17 +364,17 @@ export async function createCase({
         const name = `${Math.random().toString(36).slice(2)}.${ext}`;
         const { data: ud, error: ue } = await supabase.auth.getUser();
         if (ue || !ud?.user) throw new Error("Not authenticated");
-        const path = `case-images/${ud.user.id}/${name}`;
+        const path = `section-images/${ud.user.id}/${name}`;
         const buf = await sharp(Buffer.from(await file.arrayBuffer()))
           .rotate()
           .resize({ width: 1024, height: 768, fit: "cover" })
           .webp({ quality: 65 })
           .toBuffer();
-        await supabase.storage.from("case-images").upload(path, buf, {
+        await supabase.storage.from("section-images").upload(path, buf, {
           contentType: "image/webp",
         });
         const { data } = await supabase.storage
-          .from("case-images")
+          .from("section-images")
           .getPublicUrl(path);
         return data.publicUrl!;
       };
@@ -384,7 +384,7 @@ export async function createCase({
     const { data: ud, error: ue } = await supabase.auth.getUser();
     if (ue || !ud?.user) throw new Error("Not authenticated");
 
-    const { error } = await supabase.from("cases").insert([
+    const { error } = await supabase.from("sections").insert([
       {
         company,
         desc,
@@ -401,12 +401,12 @@ export async function createCase({
     ]);
     if (error) throw error;
   } catch (err) {
-    console.error("createCase error:", err);
+    console.error("createSection error:", err);
     throw err;
   }
 }
 
-export async function updateCase(
+export async function updateSection(
   id: number,
   company: string,
   desc: string,
@@ -483,24 +483,24 @@ export async function updateCase(
         const name = `${Math.random().toString(36).slice(2)}.${ext}`;
         const { data: ud, error: ue } = await supabase.auth.getUser();
         if (ue || !ud?.user) throw new Error("Not authenticated");
-        const path = `case-images/${ud.user.id}/${name}`;
+        const path = `section-images/${ud.user.id}/${name}`;
         const buf = await sharp(Buffer.from(await file.arrayBuffer()))
           .rotate()
           .resize({ width: 1024, height: 768, fit: "cover" })
           .webp({ quality: 65 })
           .toBuffer();
-        await supabase.storage.from("case-images").upload(path, buf, {
+        await supabase.storage.from("section-images").upload(path, buf, {
           contentType: "image/webp",
         });
         const { data } = await supabase.storage
-          .from("case-images")
+          .from("section-images")
           .getPublicUrl(path);
         return data.publicUrl!;
       };
       imageUrl = await uploadFile(image);
     } else {
       const { data: existing } = await supabase
-        .from("cases")
+        .from("sections")
         .select("image")
         .eq("id", id)
         .single();
@@ -539,39 +539,39 @@ export async function updateCase(
     };
     if (created_at) payload.created_at = created_at;
 
-    const { error } = await supabase.from("cases").update(payload).eq("id", id);
+    const { error } = await supabase.from("sections").update(payload).eq("id", id);
     if (error) throw error;
   } catch (err) {
-    console.error("updateCase error:", err);
+    console.error("updateSection error:", err);
     throw err;
   }
 }
 
-export async function getAllCases(page = 1, limit = 6) {
+export async function getAllSections(page = 1, limit = 6) {
   const supabase = await createServerClientInstance();
   const offset = (page - 1) * limit;
   const { data, count, error } = await supabase
-    .from("cases")
+    .from("sections")
     .select("*", { count: "exact" })
     .order("created_at", { ascending: false })
     .range(offset, offset + limit - 1);
   if (error) throw new Error(error.message);
-  return { cases: data, total: count ?? 0 };
+  return { sections: data, total: count ?? 0 };
 }
 
-export async function getCaseById(caseId: number) {
+export async function getSectionById(sectionId: number) {
   const supabase = await createServerClientInstance();
   const { data, error } = await supabase
-    .from("cases")
+    .from("sections")
     .select("*")
-    .eq("id", caseId)
+    .eq("id", sectionId)
     .single();
   if (error) throw new Error(error.message);
   return data;
 }
 
-export async function deleteCase(caseId: number): Promise<void> {
+export async function deleteSection(sectionId: number): Promise<void> {
   const supabase = await createServerClientInstance();
-  const { error } = await supabase.from("cases").delete().eq("id", caseId);
+  const { error } = await supabase.from("sections").delete().eq("id", sectionId);
   if (error) throw new Error(error.message);
 }
