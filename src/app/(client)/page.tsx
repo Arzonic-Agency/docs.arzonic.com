@@ -1,11 +1,12 @@
-"use client";
+import { Metadata } from "next";
+import HomePage from "./HomePage";
 
-import Section from "@/components/client/home/Section";
-
-const page = () => {
-  return <>
-    <Section />
-  </>;
+export const metadata: Metadata = {
+  title: "Arzonic Docs",
+  description:
+    "Vi tilbyder skræddersyede løsninger til dine behov, uanset om det er en simpel hjemmeside eller en kompleks webapplikation. Vores team af eksperter er klar til at hjælpe dig med at realisere dine digitale drømme.",
 };
 
-export default page;
+export default function Page() {
+  return <HomePage />;
+}

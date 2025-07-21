@@ -366,6 +366,48 @@
     "webApplications": "Web Applications",
     "seeMore": "See Solutions"
   },
+  "Sidebar": {
+    "getting_started": "Getting Started",
+    "what_is_dashboard": "What is Arzonic Dashboard?",
+    "login_access": "Login and Access",
+    "roles_permissions": "Roles and Permissions (admin, editor, etc.)",
+
+    "overview_navigation": "Overview & Navigation",
+    "frontpage": "Dashboard Frontpage",
+    "menu_sections": "Menu and Sections Explained",
+    "change_language_theme": "Change Language, Theme or Profile Settings",
+
+    "news_posts": "News and Posts",
+    "create_post": "Create News / Post",
+    "upload_media": "Upload Images or Videos",
+    "edit_delete": "Edit or Delete Content",
+    "social_publish": "Publish to Social Media (e.g. Facebook/Instagram)",
+
+    "course_event": "Course/Event Management (if applicable)",
+    "create_edit_course": "Create and Edit Courses or Events",
+    "registration_management": "Registrations and Participant Management",
+    "calendar_display": "Calendar and Display",
+
+    "user_management": "User Management",
+    "add_edit_user": "Add/Edit Users",
+    "assign_roles": "Assign Roles and Permissions",
+    "deactivate_user": "Deactivate or Delete User",
+
+    "settings_integrations": "Settings & Integrations",
+    "configure_social": "Configure Social Media (Facebook/Instagram)",
+    "webhook_integrations": "Webhook / Integrations",
+    "upload_branding": "Upload Logos, Colors etc.",
+
+    "faq": "Frequently Asked Questions (FAQ)",
+    "cant_login": "I can't log in – what should I do?",
+    "cant_see_pages": "Why can't I see the Facebook pages?",
+    "change_content": "How do I change images or text?",
+
+    "support_contact": "Support & Contact",
+    "get_help": "Get Help from Arzonic",
+    "bug_feedback": "Bug Reporting and Feedback",
+    "customer_service": "Contact Customer Service"
+  },
   "Present": {
     "title": "Superfast websites – built for performance and growth",
     "customDesign": {

@@ -361,6 +361,48 @@
     "webApplications": "Webapplikationer",
     "seeMore": "Se løsninger"
   },
+  "Sidebar": {
+    "getting_started": "Kom godt i gang",
+    "what_is_dashboard": "Hvad er Arzonic Dashboard?",
+    "login_access": "Login og adgang",
+    "roles_permissions": "Roller og tilladelser (admin, redaktør, osv.)",
+
+    "overview_navigation": "Overblik & Navigation",
+    "frontpage": "Dashboardets forside",
+    "menu_sections": "Menu og sektioner forklaret",
+    "change_language_theme": "Skift sprog, tema eller profilindstillinger",
+
+    "news_posts": "Nyheder og opslag",
+    "create_post": "Opret nyhed / post",
+    "upload_media": "Upload billeder eller videoer",
+    "edit_delete": "Rediger eller slet indhold",
+    "social_publish": "Publicering til sociale medier (fx Facebook/Instagram)",
+
+    "course_event": "Kursushåndtering / Arrangementer (hvis relevant)",
+    "create_edit_course": "Opret og rediger kurser eller events",
+    "registration_management": "Tilmeldinger og deltagerstyring",
+    "calendar_display": "Kalender og visning",
+
+    "user_management": "Brugeradministration",
+    "add_edit_user": "Tilføj/rediger brugere",
+    "assign_roles": "Tildel roller og rettigheder",
+    "deactivate_user": "Deaktiver eller slet bruger",
+
+    "settings_integrations": "Indstillinger & integrationer",
+    "configure_social": "Opsæt sociale medier (Facebook/Instagram)",
+    "webhook_integrations": "Webhook / integrationer",
+    "upload_branding": "Upload af logoer, farver osv.",
+
+    "faq": "Ofte stillede spørgsmål (FAQ)",
+    "cant_login": "Jeg kan ikke logge ind – hvad gør jeg?",
+    "cant_see_pages": "Hvorfor kan jeg ikke se Facebook-siderne?",
+    "change_content": "Hvordan ændrer jeg billeder eller tekst?",
+
+    "support_contact": "Support & kontakt",
+    "get_help": "Få hjælp fra Arzonic",
+    "bug_feedback": "Fejlmelding og feedback",
+    "customer_service": "Forbindelse til kundeservice"
+  },
   "Present": {
     "title": "Superhurtige hjemmesider – bygget til ydeevne og vækst",
     "customDesign": {
