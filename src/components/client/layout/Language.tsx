@@ -18,22 +18,34 @@ const Language = () => {
         onChange={() => setIsEnglish(!isEnglish)}
       />
       <div
-        className="swap-on flex items-center gap-2 text-3xl opacity-90"
+        className="swap-on flex items-center gap-2 relative"
         aria-label={t(
           "aria.language.changeToDanish",
           "Change language to Danish"
         )}
       >
-        <Image src="/DK.png" alt="" width={35} height={35} />
+        <Image
+          src="/DK.png"
+          alt="Danish"
+          width={32}
+          height={32}
+          className="w-6 h-auto md:w-8 md:h-auto"
+        />
       </div>
       <div
-        className="swap-off flex items-center gap-2 text-3xl opacity-90"
+        className="swap-off flex items-center gap-2 relative"
         aria-label={t(
           "aria.language.changeToEnglish",
           "Change language to English"
         )}
       >
-        <Image src="/UK.png" alt="" width={35} height={35} />
+        <Image
+          src="/UK.png"
+          alt="English"
+          width={32}
+          height={32}
+          className="w-6 h-auto md:w-8 md:h-auto"
+        />
       </div>
     </label>
   );

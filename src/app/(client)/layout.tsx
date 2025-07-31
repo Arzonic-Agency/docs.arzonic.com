@@ -1,11 +1,11 @@
 "use client";
-import { HiMenu, HiX } from "react-icons/hi";
+
 import { useEffect, useState } from "react";
 import Script from "next/script";
 import Header from "@/components/client/layout/Header";
 import Footer from "@/components/client/layout/Footer";
-import Sidebar from "@/components/client/layout/SideBar";
 import { FaAngleUp } from "react-icons/fa6";
+import Sidebar from "@/components/client/layout/Sidebar";
 
 export default function ClientLayout({
   children,
@@ -13,7 +13,6 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   const [showScroll, setShowScroll] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setShowScroll(window.scrollY > 400);
@@ -33,12 +32,11 @@ export default function ClientLayout({
       />
       <div className="pt-[64px] md:pt-[101px] max-w-screen-2xl mx-auto relative">
         <Header />
-
-        {/* Mobile drawer */}
-        <main>{children}</main>
+        <Sidebar />
+        <div className="md:ml-64">
+          <main>{children}</main>
+        </div>
         <Footer />
-
-        {/* Scroll to top button */}
         {showScroll && (
           <button
             onClick={scrollToTop}
@@ -47,25 +45,6 @@ export default function ClientLayout({
             <FaAngleUp size={17} />
           </button>
         )}
-
-        {/* Mobile bottom menu */}
-        <div className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-base-100 border-t border-base-300">
-          <div className="flex justify-center items-center h-14">
-            <button
-              onClick={() => setDrawerOpen(!drawerOpen)}
-              className="text-2xl p-2 bg-base-200 rounded-full shadow ring-1 ring-base-300 hover:bg-base-300 transition-all duration-200"
-              aria-label={drawerOpen ? "Luk menu" : "Åbn menu"}
-            >
-              <span
-                className={`transition-transform duration-300 ${
-                  drawerOpen ? "rotate-90" : "rotate-0"
-                }`}
-              >
-                {drawerOpen ? <HiX /> : <HiMenu />}
-              </span>
-            </button>
-          </div>
-        </div>
       </div>
     </>
   );

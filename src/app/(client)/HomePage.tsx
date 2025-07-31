@@ -1,10 +1,10 @@
-import NavContent from "@/components/client/home/NavContent";
+import PageContent from "@/components/client/home/PageContent";
 import React from "react";
 
 const HomePage = () => {
   return (
     <div>
-      <NavContent />
+      <PageContent />
     </div>
   );
 };

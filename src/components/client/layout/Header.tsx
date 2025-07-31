@@ -5,7 +5,8 @@ import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import Language from "./Language";
 import { useEffect, useState } from "react";
-import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
+import { HiOutlineSun, HiOutlineMoon, HiMenu } from "react-icons/hi";
+import { FaBars } from "react-icons/fa6";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -34,11 +35,25 @@ const Header = () => {
     }
   };
 
+  const toggleSidebar = () => {
+    const event = new CustomEvent("sidebar:toggle");
+    window.dispatchEvent(event);
+  };
+
   return (
-    <div className="navbar fixed top-0 inset-x-0 z-50 max-w-[1536px] mx-auto px-4 md:px-5 md:py-5 py-4 bg-base-100 shadow">
-      <div className="flex-1">
+    <div className="navbar fixed top-0 inset-x-0 z-50 max-w-[1536px] mx-auto md:px-5 md:py-5 py-7 bg-base-100 shadow">
+      <div className="flex items-center gap-2 pl-4">
+        {/* Hamburger menu button - only visible on mobile */}
+        <button
+          onClick={toggleSidebar}
+          className="btn btn-sm btn-ghost text-xl md:hidden"
+          aria-label="Åbn menu"
+        >
+          <FaBars />
+        </button>
+
         <Link
-          href="/"
+          href="https://arzonic.com"
           className="flex items-center gap-2"
           aria-label={t("aria.navigation.linkToHome")}
         >
@@ -53,10 +68,11 @@ const Header = () => {
           <span className="font-bold text-2xl md:text-3xl tracking-wider">
             {t("Header.brandName")}
           </span>
+          <span className="text-secondary font-medium pt-2">Docs</span>
         </Link>
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 ml-auto">
         <Language />
         <button
           onClick={toggleTheme}

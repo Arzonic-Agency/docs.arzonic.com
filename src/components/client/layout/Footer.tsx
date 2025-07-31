@@ -7,44 +7,9 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
-      <footer className="footer sm:footer-horizontal bg-base-100 text-base-content p-10 border-base-300 border-t">
-        <nav>
-          <h5 className="footer-title">{t("Footer.solutions")}</h5>
-          <Link href="https://arsonic.com/solutions/custom-websites" className="link link-hover">
-            {t("Header.dropdown.customWebsites")}
-          </Link>
-          <Link href="https://arsonic.com/solutions/web-applications" className="link link-hover">
-            {t("Header.dropdown.webApplications")}
-          </Link>
-          <Link href="https://arsonic.com/solutions/3d-visualization" className="link link-hover">
-            {t("Header.dropdown.visualization")}
-          </Link>
-          <Link href="https://arsonic.com/solutions/design-animation" className="link link-hover">
-            {t("Header.dropdown.designAnimation")}
-          </Link>
-        </nav>
-        <nav>
-          <h5 className="footer-title">{t("Footer.aboutUs")}</h5>
-          <Link href="https://arsonic.com/about" className="link link-hover">
-            {t("about")}
-          </Link>
-          <Link href="https://arsonic.com/contact" className="link link-hover">
-            {t("contact")}
-          </Link>
-          <Link href="https://arsonic.com/jobs" className="link link-hover">
-            {t("Footer.jobs", "Jobs")}
-          </Link>
-        </nav>
-        <nav>
-          <h5 className="footer-title">{t("Footer.legal", "Legal")}</h5>
-          {/* <TermsModal buttonText={t("terms_of_service")} variant="hover" />
-          <ConsentModal buttonText={t("privacy_policy")} variant="hover" /> */}
-        </nav>
-      </footer>
-
-      <footer className="footer bg-base-100 text-base-content px-10 py-4 border-t border-base-300">
-        <aside className="flex items-center">
+    <div className="md:ml-64 bg-base-100 shadow-lg">
+      <footer className="flex justify-between items-center px-10 py-5">
+        <aside className="flex items-center text-sm space-x-2">
           <FaHashtag className="text-3xl -rotate-12 text-secondary" />
           <p>
             {t("Footer.brandName", "Arzonic Agency")}
@@ -52,15 +17,15 @@ const Footer = () => {
             {t("Footer.reliableTech", "Providing reliable tech since 2024")}
           </p>
         </aside>
-        <nav className="md:place-self-center md:justify-self-end mb-5">
-          <div className="grid grid-flow-col gap-4 text-3xl items-center">
+        <nav>
+          <div className="flex items-center gap-4">
             <Link
               href="https://www.facebook.com/profile.php?id=61575249251500"
               target="_blank"
               rel="noopener noreferrer"
               className="md:hover:text-secondary md:transition-colors md:duration-300"
             >
-              <FaFacebook size={30} />
+              <FaFacebook size={27} />
             </Link>
             <Link
               href="https://www.instagram.com/arzonic.agency/"
@@ -68,7 +33,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="md:hover:text-secondary md:transition-colors md:duration-300"
             >
-              <FaInstagram size={33} />
+              <FaInstagram size={30} />
             </Link>
           </div>
         </nav>
