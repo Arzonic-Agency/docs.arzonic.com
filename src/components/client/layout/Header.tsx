@@ -4,9 +4,35 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import Language from "./Language";
+import { useEffect, useState } from "react";
+import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
 
 const Header = () => {
   const { t } = useTranslation();
+  const [isLight, setIsLight] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    if (stored === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+      setIsLight(true);
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+      setIsLight(false);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      localStorage.removeItem("theme");
+      setIsLight(false);
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
+      setIsLight(true);
+    }
+  };
 
   return (
     <div className="navbar fixed top-0 inset-x-0 z-50 max-w-[1536px] mx-auto px-4 md:px-5 md:py-5 py-4 bg-base-100 shadow">
@@ -29,50 +55,19 @@ const Header = () => {
           </span>
         </Link>
       </div>
-      <Language />
+
+      <div className="flex items-center gap-2">
+        <Language />
+        <button
+          onClick={toggleTheme}
+          className="btn btn-sm btn-ghost text-xl"
+          aria-label="Skift tema"
+        >
+          {isLight ? <HiOutlineMoon /> : <HiOutlineSun />}
+        </button>
+      </div>
     </div>
   );
 };
 
 export default Header;
-
-
-
-
-// "use client";
-
-// import Link from "next/link";
-// import Image from "next/image";
-// import { useTranslation } from "react-i18next";
-// import Language from "./Language";
-
-// const Header = () => {
-//   const { t } = useTranslation();
-
-//   return (
-//     <div className="navbar absolute top-0 inset-x-0 z-50 max-w-[1536px] mx-auto md:px-5 md:py-5 py-7 bg-base-100 md:bg-transparent">
-//       <div className="flex-1">
-//         <Link
-//           href="/"
-//           className="pl-4 flex items-center gap-2"
-//           aria-label={t("aria.navigation.linkToHome")}
-//         >
-//           <Image
-//             src="/icon-192x192.png"
-//             alt={t("Header.logoAlt")}
-//             width={60}
-//             height={60}
-//             className="h-10 w-10 md:h-14 md:w-14 rounded-full"
-//             priority
-//           />
-//           <span className="font-bold text-2xl md:text-3xl tracking-wider">
-//             {t("Header.brandName")}
-//           </span>
-//         </Link>
-//       </div>
-//             <Language />
-//     </div>
-//   );
-// };
-
-// export default Header;
