@@ -35,23 +35,6 @@ export default function ClientLayout({
         <Header />
 
         {/* Mobile drawer */}
-        <div
-          className={`fixed inset-0 z-40 transition-opacity duration-300 ${
-            drawerOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
-          onClick={() => setDrawerOpen(false)}
-        />
-
-        <aside
-          className={`fixed top-0 left-0 w-64 h-full bg-base-100 shadow-lg z-50 p-4 overflow-y-auto transition-transform duration-300 transform ${
-            drawerOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-        >
-
-          <Sidebar closeDrawer={() => setDrawerOpen(false)} />
-        </aside>
-
-        {/* Mobile drawer */}
         <main>{children}</main>
         <Footer />
 
