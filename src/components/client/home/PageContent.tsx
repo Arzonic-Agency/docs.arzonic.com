@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import GetStarted from "../pages/GetStarted";
 import NewsPosts from "../pages/NewsPosts";
 import SupportContact from "../pages/SupportContact";
@@ -12,7 +12,6 @@ type TopicId =
   | "support-contact"
   | "user-management";
 
-// Mapping mellem item-slugs og dine komponent-sektioner
 const sectionsToTopicsMap: Record<string, TopicId> = {
   introduction: "get-started",
   news: "news-post",
@@ -28,20 +27,10 @@ const sectionsToTopicsMap: Record<string, TopicId> = {
   roles: "user-management",
 };
 
-type SectionsMap = Record<string, any>;
 type TopicsData = Record<string, Record<string, any>>;
 
-const PageContent = ({
-  sections,
-  topicsData,
-}: {
-  sections?: SectionsMap;
-  topicsData?: TopicsData;
-}) => {
+const PageContent = ({ topicsData }: { topicsData?: TopicsData }) => {
   const [activeSection, setActiveSection] = useState<TopicId>("get-started");
-
-  console.log("📄 PageContent - Received sections:", sections);
-  console.log("📄 PageContent - Received topicsData:", topicsData);
 
   useEffect(() => {
     const handler = (e: CustomEvent) => {
@@ -81,30 +70,18 @@ const PageContent = ({
   }, []);
 
   const renderContent = () => {
-    console.log("🎨 Rendering content for section:", activeSection);
-
     switch (activeSection) {
       case "get-started":
-        const getStartedSections = topicsData?.["get-started"] || {};
-        console.log(
-          "📚 Rendering GetStarted with sections:",
-          getStartedSections
-        );
+        const getStartedSections = topicsData?.["get-started"];
         return <GetStarted sections={getStartedSections} />;
       case "news-post":
-        const newsPostSections = topicsData?.["news-post"] || {};
-        console.log("📰 Rendering NewsPosts with sections:", newsPostSections);
+        const newsPostSections = topicsData?.["news-post"];
         return <NewsPosts sections={newsPostSections} />;
       case "support-contact":
-        const supportSections = topicsData?.["support-contact"] || {};
-        console.log(
-          "🎧 Rendering SupportContact with sections:",
-          supportSections
-        );
+        const supportSections = topicsData?.["support-contact"];
         return <SupportContact sections={supportSections} />;
       case "user-management":
-        const userSections = topicsData?.["user-management"] || {};
-        console.log("👥 Rendering UserManagement with sections:", userSections);
+        const userSections = topicsData?.["user-management"];
         return <UserManagement sections={userSections} />;
       default:
         return null;

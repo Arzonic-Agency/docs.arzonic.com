@@ -7,8 +7,6 @@ type Props = {
 };
 
 const SupportContact = ({ sections }: Props) => {
-  console.log("🎧 SupportContact - Received sections:", sections);
-
   const sectionsToUse = sections ? Object.values(sections) : [];
 
   return (
@@ -37,7 +35,7 @@ const SupportContact = ({ sections }: Props) => {
                   </p>
                 )}
               </section>
-            )
+            ),
         )
       ) : (
         <div className="space-y-6">

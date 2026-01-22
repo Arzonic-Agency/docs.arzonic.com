@@ -7,6 +7,7 @@ import Language from "./Language";
 import { useEffect, useState } from "react";
 import { HiOutlineSun, HiOutlineMoon, HiMenu } from "react-icons/hi";
 import { FaBars } from "react-icons/fa6";
+import Search from "./Search";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -42,7 +43,7 @@ const Header = () => {
 
   return (
     <div className="navbar fixed top-0 inset-x-0 z-50 max-w-[1536px] mx-auto md:px-5 md:py-5 py-7 bg-base-100 shadow">
-      <div className="flex items-center gap-2 pl-4">
+      <div className="navbar-start flex items-center gap-2 pl-4">
         {/* Hamburger menu button - only visible on mobile */}
         <button
           onClick={toggleSidebar}
@@ -71,8 +72,11 @@ const Header = () => {
           <span className="text-secondary font-medium pt-2">Docs</span>
         </Link>
       </div>
+      <div className="navbar-center">
+        <Search />
+      </div>
 
-      <div className="flex items-center gap-2 ml-auto">
+      <div className="navbar-end flex items-center gap-2">
         <Language />
         <button
           onClick={toggleTheme}

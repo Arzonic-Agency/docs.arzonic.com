@@ -7,8 +7,6 @@ type Props = {
 };
 
 const NewsPosts = ({ sections }: Props) => {
-  console.log("📰 NewsPosts - Received sections:", sections);
-
   const sectionsToUse = sections ? Object.values(sections) : [];
 
   return (
@@ -37,7 +35,7 @@ const NewsPosts = ({ sections }: Props) => {
                   </p>
                 )}
               </section>
-            )
+            ),
         )
       ) : (
         <div className="space-y-6">

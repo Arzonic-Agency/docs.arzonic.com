@@ -7,8 +7,6 @@ type Props = {
 };
 
 const UserManagement = ({ sections }: Props) => {
-  console.log("👥 UserManagement - Received sections:", sections);
-
   const sectionsToUse = sections ? Object.values(sections) : [];
 
   return (
@@ -37,7 +35,7 @@ const UserManagement = ({ sections }: Props) => {
                   </p>
                 )}
               </section>
-            )
+            ),
         )
       ) : (
         <div className="space-y-6">

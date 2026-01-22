@@ -2,7 +2,7 @@
 
 import { createServerClientInstance } from "@/utils/supabase/server";
 
-import { DocBlock, DocSection, type DocTopic } from "./types";
+import { DocBlock, DocSection } from "./types";
 
 export async function getAllCases(page: number = 1, limit: number = 3) {
   const supabase = await createServerClientInstance();
@@ -28,12 +28,9 @@ export async function getAllCases(page: number = 1, limit: number = 3) {
 
 export async function fetchSectionsBySlugs(
   topicSlug: string,
-  slugs: string[]
+  slugs: string[],
 ): Promise<Record<string, DocSection>> {
   const supabase = await createServerClientInstance();
-
-  console.log("🔍 Søger efter topic med slug:", topicSlug);
-  console.log("🔍 Søger efter sections med slugs:", slugs);
 
   // Find topic
   const { data: topic, error: topicError } = await supabase
@@ -42,7 +39,6 @@ export async function fetchSectionsBySlugs(
     .eq("slug", topicSlug)
     .maybeSingle();
 
-  console.log("📊 Topic result:", topic);
   if (topicError) console.error("❌ Topic error:", topicError);
 
   if (!topic) {
@@ -69,7 +65,6 @@ export async function fetchSectionsBySlugs(
       };
     });
 
-  console.log("📊 Sections result:", sections);
   if (sectionsError) console.error("❌ Sections error:", sectionsError);
 
   if (!sections) {
@@ -81,16 +76,15 @@ export async function fetchSectionsBySlugs(
   const { data: items, error: itemsError } = await supabase
     .from("doc_items")
     .select(
-      "id, section_id, type, title, content_json, content_md, excerpt, external_url, order_index, status"
+      "id, section_id, type, title, content_json, content_md, excerpt, external_url, order_index, status",
     )
     .eq("status", "published")
     .in(
       "section_id",
-      sections.map((s) => s.id)
+      sections.map((s) => s.id),
     )
     .order("order_index", { ascending: true });
 
-  console.log("📊 Items result:", items);
   if (itemsError) console.error("❌ Items error:", itemsError);
 
   // Map items ind i sektioner som "blocks"
@@ -128,6 +122,5 @@ export async function fetchSectionsBySlugs(
     };
   });
 
-  console.log("✅ Final result:", result);
   return result;
 }

@@ -10,8 +10,6 @@ type Props = {
 };
 
 const GetStarted = ({ intro, flow, next, sections }: Props) => {
-  console.log("📚 GetStarted - Received sections:", sections);
-
   // Hvis sections prop er sat, brug den. Ellers brug de gamle props
   const sectionsToUse = sections
     ? Object.values(sections)
@@ -42,7 +40,7 @@ const GetStarted = ({ intro, flow, next, sections }: Props) => {
                 </p>
               )}
             </section>
-          )
+          ),
       )}
     </div>
   );

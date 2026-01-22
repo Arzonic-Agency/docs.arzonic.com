@@ -11,8 +11,6 @@ export async function GET() {
     .from("jobs")
     .select("slug, created_at")
     .eq("active", true);
-  console.log("Jobs data:", jobs);
-  console.log("Supabase error:", error);
   if (error) {
     console.error("Failed to fetch jobs for sitemap:", error.message);
   }
@@ -56,7 +54,7 @@ export async function GET() {
       <changefreq>weekly</changefreq>
       <priority>${path === "" ? "1.0" : "0.8"}</priority>
       <lastmod>${today}</lastmod>
-    </url>`
+    </url>`,
     ),
     ...dynamicCountries.flatMap((country) =>
       [
@@ -71,8 +69,8 @@ export async function GET() {
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
         <lastmod>${today}</lastmod>
-      </url>`
-      )
+      </url>`,
+      ),
     ),
     ...(jobs || []).map(
       (job) => `
@@ -81,7 +79,7 @@ export async function GET() {
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <lastmod>${job.created_at?.split("T")[0] || today}</lastmod>
-      </url>`
+      </url>`,
     ),
   ];
 
