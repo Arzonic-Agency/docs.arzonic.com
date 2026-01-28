@@ -1,7 +1,12 @@
 import Link from "next/link";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { FaFacebook, FaHashtag, FaInstagram } from "react-icons/fa6";
+import {
+  FaFacebook,
+  FaHashtag,
+  FaInstagram,
+  FaRegCopyright,
+} from "react-icons/fa6";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -9,13 +14,19 @@ const Footer = () => {
   return (
     <div className="md:ml-64 bg-base-100 shadow-lg">
       <footer className="flex justify-between items-center px-10 py-5">
-        <aside className="flex items-center text-sm space-x-2">
-          <FaHashtag className="text-3xl -rotate-12 text-secondary" />
-          <p>
-            {t("Footer.brandName", "Arzonic Agency")}
-            <br />
-            {t("Footer.reliableTech", "Providing reliable tech since 2024")}
-          </p>
+        <aside className="flex items-center  flex-col text-sm gap-2">
+          <div className="flex items-center gap-2">
+            <FaHashtag className="text-3xl -rotate-12 text-secondary" />
+            <p>
+              {t("Footer.brandName", "Arzonic Agency")}
+              <br />
+              {t("Footer.reliableTech", "Providing reliable tech since 2024")}
+            </p>
+          </div>
+          <span className="ml-2 text-xs text-zinc-500 flex items-center gap-[5px]">
+            <FaRegCopyright /> {new Date().getFullYear()} Arzonic ApS -{" "}
+            {t("All Rights Reserved")}
+          </span>
         </aside>
         <nav>
           <div className="flex items-center gap-4">
