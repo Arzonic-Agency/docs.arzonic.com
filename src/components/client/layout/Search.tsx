@@ -2,7 +2,7 @@ import { FaSearch } from "react-icons/fa";
 
 const Search = () => {
   return (
-    <div>
+    <div className="">
       <label className="input input-ghost bg-base-300">
         <FaSearch />
         <input type="search" className="grow" placeholder="Search" />

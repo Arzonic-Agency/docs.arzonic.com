@@ -7,11 +7,13 @@ import Language from "./Language";
 import { useEffect, useState } from "react";
 import { HiOutlineSun, HiOutlineMoon, HiMenu } from "react-icons/hi";
 import { FaBars } from "react-icons/fa6";
+import { FaSearch } from "react-icons/fa";
 import Search from "./Search";
 
 const Header = () => {
   const { t } = useTranslation();
   const [isLight, setIsLight] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
@@ -72,11 +74,23 @@ const Header = () => {
           <span className="text-secondary font-medium pt-2">Docs</span>
         </Link>
       </div>
-      <div className="navbar-center">
+      <div className="navbar-center hidden md:flex w-48 md:w-56 lg:w-80">
         <Search />
       </div>
 
       <div className="navbar-end flex items-center gap-2">
+        <button
+          onClick={() => setIsSearchOpen(!isSearchOpen)}
+          className="btn btn-sm btn-ghost text-xl md:hidden"
+          aria-label="Søg"
+        >
+          <FaSearch />
+        </button>
+        {isSearchOpen && (
+          <div className="absolute top-full right-0 mt-2 bg-base-100 shadow-lg rounded-lg p-4 w-80 md:hidden">
+            <Search />
+          </div>
+        )}
         <Language />
         <button
           onClick={toggleTheme}
