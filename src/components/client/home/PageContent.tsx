@@ -88,7 +88,7 @@ const PageContent = ({ topicsData }: { topicsData?: TopicsData }) => {
     }
   };
 
-  return <main className="p-6 pt-12 md:pt-6">{renderContent()}</main>;
+  return <>{renderContent()}</>;
 };
 
 export default PageContent;

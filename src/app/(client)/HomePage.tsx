@@ -17,7 +17,7 @@ const HomePage = async () => {
   };
 
   return (
-    <div>
+    <div className="p-3 md:p-7">
       <PageContent topicsData={topicsData} />
     </div>
   );

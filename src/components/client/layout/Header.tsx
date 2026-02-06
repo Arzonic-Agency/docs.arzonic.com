@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import Language from "./Language";
-import { useEffect, useState } from "react";
-import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
+import ThemeToggle from "./ThemeToggle";
+import { useEffect, useRef, useState } from "react";
 import { FaBars } from "react-icons/fa6";
 import { FaSearch, FaTimes } from "react-icons/fa";
 import Search from "./Search";
@@ -36,31 +36,40 @@ const slideSearch: Variants = {
 
 const Header = () => {
   const { t } = useTranslation();
-  const [isLight, setIsLight] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const desktopSearchRef = useRef<HTMLInputElement>(null);
+  const mobileSearchRef = useRef<HTMLInputElement>(null);
 
+  // Keyboard shortcut: Cmd+K (Mac) or Ctrl+K (Windows/Linux)
   useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    if (stored === "light") {
-      document.documentElement.setAttribute("data-theme", "light");
-      setIsLight(true);
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-      setIsLight(false);
-    }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        // Check if we're on mobile (md breakpoint is 768px)
+        if (window.innerWidth < 768) {
+          setIsSearchOpen(true);
+          setTimeout(() => mobileSearchRef.current?.focus(), 100);
+        } else {
+          desktopSearchRef.current?.focus();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  const toggleTheme = () => {
-    if (isLight) {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.removeItem("theme");
-      setIsLight(false);
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
-      setIsLight(true);
-    }
-  };
+  // Close mobile search when resizing to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsSearchOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleSidebar = () => {
     const event = new CustomEvent("sidebar:toggle");
@@ -68,9 +77,8 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar fixed top-0 inset-x-0 z-50 max-w-[1536px] mx-auto md:px-5 md:py-5 py-7 bg-base-100 shadow">
-      <div className="navbar-start flex items-center gap-2 pl-4">
-        {/* Hamburger menu button - only visible on mobile */}
+    <div className="navbar fixed top-0 inset-x-0 z-50 max-w-384 mx-auto md:px-5 md:py-5 h-24 md:h-auto bg-base-100 shadow">
+      <div className="navbar-start flex items-center gap-2 md:pl-4">
         <button
           onClick={toggleSidebar}
           className="btn btn-sm btn-ghost text-xl md:hidden relative z-50"
@@ -80,7 +88,7 @@ const Header = () => {
         </button>
         <Link
           href="https://arzonic.com"
-          className={`flex items-center gap-2 ${isSearchOpen ? "hidden" : "block"}`}
+          className={`flex items-center gap-2 ${isSearchOpen ? "hidden min-[600px]:flex" : ""}`}
           aria-label={t("aria.navigation.linkToHome")}
         >
           <Image
@@ -97,8 +105,8 @@ const Header = () => {
           <span className="text-secondary font-medium pt-2">Docs</span>
         </Link>
       </div>
-      <div className="ml-30 navbar-center hidden md:flex md:w-56 lg:w-80">
-        <Search />
+      <div className="ml-30 navbar-center hidden md:flex md:w-72 lg:w-96">
+        <Search ref={desktopSearchRef} />
       </div>
       <div className="navbar-end flex items-center gap-0 md:gap-2 ">
         {/* Search overlay - only on mobile */}
@@ -109,16 +117,22 @@ const Header = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className=" bg-base-100 flex items-center px-4 md:hidden z-40 "
+              className="absolute top-1/2 -translate-y-1/2 right-12 bg-base-100 flex items-center px-4 md:hidden z-40"
             >
-              <div className=" w-60">
-                <Search />
+              <div className="w-60">
+                <Search ref={mobileSearchRef} />
               </div>
             </motion.div>
           )}
         </AnimatePresence>
         <button
-          onClick={() => setIsSearchOpen(!isSearchOpen)}
+          onClick={() => {
+            const opening = !isSearchOpen;
+            setIsSearchOpen(opening);
+            if (opening) {
+              setTimeout(() => mobileSearchRef.current?.focus(), 600);
+            }
+          }}
           className="btn btn-sm btn-ghost text-xl md:hidden relative z-50"
           aria-label="Søg"
         >
@@ -126,13 +140,7 @@ const Header = () => {
         </button>
         <div className="hidden md:flex items-center gap-2">
           <Language />
-          <button
-            onClick={toggleTheme}
-            className="btn btn-sm btn-ghost text-xl"
-            aria-label="Skift tema"
-          >
-            {isLight ? <HiOutlineMoon /> : <HiOutlineSun />}
-          </button>
+          <ThemeToggle />
         </div>
       </div>
     </div>

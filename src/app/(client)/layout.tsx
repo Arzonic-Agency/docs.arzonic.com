@@ -30,10 +30,10 @@ export default function ClientLayout({
         src="https://stats.arzonic.com/script.js"
         data-website-id="3226dc67-1feb-4d8c-9f6d-75f7dd0d23d7"
       />
-      <div className="pt-[64px] md:pt-[101px] max-w-screen-2xl mx-auto relative">
+      <div className="max-w-screen-2xl mx-auto relative">
         <Header />
         <Sidebar />
-        <div className="md:ml-64">
+        <div className="md:ml-68 mt-24 md:mt-25.25">
           <main>{children}</main>
         </div>
         <Footer />

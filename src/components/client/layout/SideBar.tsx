@@ -1,41 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const sections = [
-  {
-    id: "introduction",
-    label: "Introduktion",
-    items: [
-      { id: "intro", label: "kom godt i gang" },
-      { id: "flow", label: "Sådan fungerer det" },
-    ],
-  },
-  {
-    id: "news",
-    label: "Nyhedsopslag",
-    items: [
-      { id: "create", label: "Opret opslag" },
-      { id: "upload", label: "Upload billeder/video" },
-    ],
-  },
-  {
-    id: "support",
-    label: "Support og kontakt",
-    items: [
-      { id: "contact", label: "Kontakt os" },
-      { id: "faq", label: "FAQ / Hjælp" },
-    ],
-  },
-  {
-    id: "users",
-    label: "Brugerhåndtering",
-    items: [
-      { id: "manage", label: "Brugeradministration" },
-      { id: "roles", label: "Roller og tilladelser" },
-    ],
-  },
-];
+import { sections } from "@/lib/client/searchData";
+import Language from "./Language";
+import ThemeToggle from "./ThemeToggle";
 
 const Sidebar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -65,11 +33,11 @@ const Sidebar = () => {
     <>
       {/* Mobile sidebar */}
       <aside
-        className={`w-64 h-screen fixed top-[64px] bg-base-100 shadow-xl p-4 pt-10 overflow-y-auto z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`w-68 fixed top-16 bottom-0 bg-base-100 shadow-xl p-4 pt-10 z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${
           isMobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <ul className="menu space-y-4">
+        <ul className="menu space-y-4 flex-1 overflow-y-auto">
           {sections.map((section) => (
             <li key={section.label}>
               <button
@@ -93,10 +61,16 @@ const Sidebar = () => {
             </li>
           ))}
         </ul>
+        
+        {/* Language and Theme toggles at bottom */}
+        <div className="flex items-center justify-center gap-4 pt-4 border-t border-base-300">
+          <Language />
+          <ThemeToggle />
+        </div>
       </aside>
 
       {/* Desktop sidebar */}
-      <aside className="w-64 h-screen fixed md:top-[101px] bg-base-100 shadow-xl p-4 overflow-y-auto hidden md:block z-40">
+      <aside className="w-68 h-screen fixed md:top-25.25 bg-base-100 shadow-xl p-4 overflow-y-auto hidden md:block z-40">
         <ul className="menu space-y-4">
           {sections.map((section) => (
             <li key={section.label}>
@@ -126,7 +100,7 @@ const Sidebar = () => {
       {/* Mobile overlay */}
       {isMobileOpen && (
         <div
-          className="fixed inset-0 bg-black/30 bg-opacity-20 z-40 md:hidden top-[64px]"
+          className="fixed inset-0 bg-black/30 bg-opacity-20 z-40 md:hidden top-16"
           onClick={() => setIsMobileOpen(false)}
         />
       )}
