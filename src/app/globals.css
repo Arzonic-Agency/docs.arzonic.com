@@ -2,10 +2,11 @@
 @plugin "daisyui";
 
 @plugin "daisyui" {
-  themes: arzoniclight --default, arzonicdark --prefersdark;
+  themes:
+    arzoniclight --default,
+    arzonicdark --prefersdark;
   exclude: rootcolor;
 }
-
 
 @plugin "daisyui/theme" {
   name: "arzonicdark";
@@ -16,23 +17,23 @@
   --color-base-100: #131313;
   --color-base-200: #161616;
   --color-base-300: #191919;
-  --color-base-content: #E4E4E4;
+  --color-base-content: #e4e4e4;
   --color-primary: #048179;
-  --color-primary-content: #E4E4E4;
-  --color-secondary: #0AA197;
-  --color-secondary-content: #E4E4E4;
+  --color-primary-content: #e4e4e4;
+  --color-secondary: #0aa197;
+  --color-secondary-content: #e4e4e4;
   --color-accent: #131717;
-  --color-accent-content: #E4E4E4;
+  --color-accent-content: #e4e4e4;
   --color-neutral: #202020;
-  --color-neutral-content: #E4E4E4;
-  --color-info: #21847E;
-  --color-info-content: #E4E4E4;
+  --color-neutral-content: #e4e4e4;
+  --color-info: #21847e;
+  --color-info-content: #e4e4e4;
   --color-success: #177512;
-  --color-success-content: #E4E4E4;
-  --color-warning: #AE9F17;
-  --color-warning-content: #E4E4E4;
-  --color-error: #D82E2E;
-  --color-error-content: #E4E4E4;
+  --color-success-content: #e4e4e4;
+  --color-warning: #ae9f17;
+  --color-warning-content: #e4e4e4;
+  --color-error: #d82e2e;
+  --color-error-content: #e4e4e4;
   --radius-selector: 0.5rem;
   --radius-field: 0.5rem;
   --radius-box: 0.5rem;
@@ -49,14 +50,14 @@
   prefersdark: false;
   color-scheme: light;
 
-  --color-base-100: #EAEAEB;
-  --color-base-200: #F8FAFC;
-  --color-base-300: #E2E2E2;
+  --color-base-100: #f8fafc;
+  --color-base-200: #eaeaeb;
+  --color-base-300: #e2e2e2;
   --color-base-content: #171717;
-  --color-primary: oklch(51% 0.096 186.391);
+  --color-primary: #048179;
   --color-primary-content: oklch(98% 0.003 247.858);
-  --color-secondary: #51B2AA;
-  --color-secondary-content: #FCFFFC;
+  --color-secondary: #51b2aa;
+  --color-secondary-content: #fcfffc;
   --color-accent: oklch(77% 0.152 181.912);
   --color-accent-content: oklch(100% 0 0);
   --color-neutral: oklch(14% 0.005 285.823);
@@ -64,11 +65,11 @@
   --color-info: oklch(68% 0.169 237.323);
   --color-info-content: oklch(28% 0.091 267.935);
   --color-success: oklch(62% 0.194 149.214);
-  --color-success-content: #EAEAEB;
+  --color-success-content: #eaeaeb;
   --color-warning: oklch(79% 0.184 86.047);
   --color-warning-content: oklch(28% 0.066 53.813);
-  --color-error: #D82E2E;
-  --color-error-content: #F2F3F5;
+  --color-error: #d82e2e;
+  --color-error-content: #f2f3f5;
 
   --radius-selector: 0.5rem;
   --radius-field: 0.5rem;
@@ -126,13 +127,12 @@ html {
   list-style-position: inside;
 }
 
-.tiptap-list-style ul>li {
+.tiptap-list-style ul > li {
   list-style-type: disc;
   display: list-item;
 }
 
-
-.tiptap-list-style li>p {
+.tiptap-list-style li > p {
   margin: 0;
   display: inline;
 }

@@ -4,29 +4,54 @@ import { useEffect, useState } from "react";
 import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
 
 const ThemeToggle = () => {
+  const LIGHT_THEME = "arzoniclight";
+  const DARK_THEME = "arzonicdark";
+  const THEME_CHANGE_EVENT = "theme:change";
+
   const [isLight, setIsLight] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    if (stored === "light") {
-      document.documentElement.setAttribute("data-theme", "light");
-      setIsLight(true);
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-      setIsLight(false);
-    }
+    const initializeTheme = () => {
+      const storedTheme = localStorage.getItem("theme");
+      const currentTheme =
+        storedTheme ??
+        document.documentElement.getAttribute("data-theme") ??
+        DARK_THEME;
+
+      const themeToApply =
+        currentTheme === LIGHT_THEME ? LIGHT_THEME : DARK_THEME;
+
+      document.documentElement.setAttribute("data-theme", themeToApply);
+      setIsLight(themeToApply === LIGHT_THEME);
+    };
+
+    initializeTheme();
+
+    // Listen for theme changes from other instances
+    const handleThemeChange = (event: Event) => {
+      const customEvent = event as CustomEvent;
+      setIsLight(customEvent.detail.isLight);
+    };
+
+    window.addEventListener(THEME_CHANGE_EVENT, handleThemeChange);
+    return () => {
+      window.removeEventListener(THEME_CHANGE_EVENT, handleThemeChange);
+    };
   }, []);
 
   const toggleTheme = () => {
-    if (isLight) {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.removeItem("theme");
-      setIsLight(false);
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
-      setIsLight(true);
-    }
+    const newTheme = isLight ? DARK_THEME : LIGHT_THEME;
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    const newIsLight = !isLight;
+    setIsLight(newIsLight);
+
+    // Notify other instances of the theme change
+    window.dispatchEvent(
+      new CustomEvent(THEME_CHANGE_EVENT, {
+        detail: { isLight: newIsLight },
+      }),
+    );
   };
 
   return (
