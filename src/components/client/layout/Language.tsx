@@ -3,25 +3,46 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const Language = () => {
+  const LANGUAGE_CHANGE_EVENT = "language:change";
   const { i18n, t } = useTranslation();
   const [isEnglish, setIsEnglish] = useState(i18n.language === "en");
+
+  useEffect(() => {
+    const handleLanguageChange = (event: Event) => {
+      const customEvent = event as CustomEvent;
+      setIsEnglish(customEvent.detail.isEnglish);
+    };
+
+    window.addEventListener(LANGUAGE_CHANGE_EVENT, handleLanguageChange);
+    return () => {
+      window.removeEventListener(LANGUAGE_CHANGE_EVENT, handleLanguageChange);
+    };
+  }, []);
 
   useEffect(() => {
     i18n.changeLanguage(isEnglish ? "en" : "da");
   }, [isEnglish, i18n]);
 
+  const toggleLanguage = () => {
+    const newIsEnglish = !isEnglish;
+    setIsEnglish(newIsEnglish);
+
+    // Notify other instances of the language change
+    window.dispatchEvent(
+      new CustomEvent(LANGUAGE_CHANGE_EVENT, {
+        detail: { isEnglish: newIsEnglish },
+      }),
+    );
+  };
+
   return (
     <label className="swap swap-rotate cursor-pointer justify-start">
-      <input
-        type="checkbox"
-        checked={isEnglish}
-        onChange={() => setIsEnglish(!isEnglish)}
-      />
+      <input type="checkbox" checked={isEnglish} onChange={toggleLanguage} />
       <div
         className="swap-on flex items-center gap-2 relative"
         aria-label={t(
           "aria.language.changeToDanish",
-          "Change language to Danish"
+          "Change language to Danish",
         )}
       >
         <Image
@@ -36,7 +57,7 @@ const Language = () => {
         className="swap-off flex items-center gap-2 relative"
         aria-label={t(
           "aria.language.changeToEnglish",
-          "Change language to English"
+          "Change language to English",
         )}
       >
         <Image

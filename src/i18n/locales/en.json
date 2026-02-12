@@ -8,7 +8,9 @@
   "cancel": "Cancel",
   "create": "Create",
   "back": "Back",
-  "search": "Search",
+  "search": {
+    "placeholder": "Search"
+  },
   "language": "Language",
   "light": "Light",
   "dark": "Dark",

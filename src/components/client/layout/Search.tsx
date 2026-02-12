@@ -1,8 +1,12 @@
+"use client";
+
 import { forwardRef, useEffect, useState, useMemo } from "react";
 import { FaSearch } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import { sections } from "@/lib/client/searchData";
 
 const Search = forwardRef<HTMLInputElement>((_, ref) => {
+  const { t } = useTranslation();
   const [isMac, setIsMac] = useState(false);
   const [query, setQuery] = useState("");
   const [isFocused, setIsFocused] = useState(false);
@@ -16,7 +20,12 @@ const Search = forwardRef<HTMLInputElement>((_, ref) => {
     if (!query.trim()) return [];
 
     const q = query.toLowerCase();
-    const matches: { sectionId: string; sectionLabel: string; itemId: string; itemLabel: string }[] = [];
+    const matches: {
+      sectionId: string;
+      sectionLabel: string;
+      itemId: string;
+      itemLabel: string;
+    }[] = [];
 
     sections.forEach((section) => {
       // Check if section label matches
@@ -60,10 +69,10 @@ const Search = forwardRef<HTMLInputElement>((_, ref) => {
   // Highlight matching text in results
   const highlightMatch = (text: string) => {
     if (!query.trim()) return text;
-    
+
     const regex = new RegExp(`(${query.trim()})`, "gi");
     const parts = text.split(regex);
-    
+
     return parts.map((part, i) =>
       regex.test(part) ? (
         <mark key={i} className="bg-primary/30 text-inherit rounded px-0.5">
@@ -71,7 +80,7 @@ const Search = forwardRef<HTMLInputElement>((_, ref) => {
         </mark>
       ) : (
         part
-      )
+      ),
     );
   };
 
@@ -85,7 +94,7 @@ const Search = forwardRef<HTMLInputElement>((_, ref) => {
           ref={ref}
           type="search"
           className="grow"
-          placeholder="Search"
+          placeholder={t("search.placeholder", "Search")}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsFocused(true)}
@@ -105,7 +114,9 @@ const Search = forwardRef<HTMLInputElement>((_, ref) => {
                     onClick={() => handleResultClick(result.itemId)}
                     className="flex flex-col items-start"
                   >
-                    <span className="text-xs text-base-content/50">{highlightMatch(result.sectionLabel)}</span>
+                    <span className="text-xs text-base-content/50">
+                      {highlightMatch(result.sectionLabel)}
+                    </span>
                     <span>{highlightMatch(result.itemLabel)}</span>
                   </button>
                 </li>

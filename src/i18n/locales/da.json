@@ -8,7 +8,9 @@
   "cancel": "Annuller",
   "create": "Opret",
   "back": "Tilbage",
-  "search": "Søg",
+  "search": {
+    "placeholder": "Søg"
+  },
   "language": "Sprog",
   "light": "Lys",
   "dark": "Mørk",
