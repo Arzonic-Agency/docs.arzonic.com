@@ -1,6 +1,6 @@
-import React from "react";
 import { BlockMini } from "@/components/elements/BlockMini";
 import { DocSection } from "@/lib/client/types";
+import FeedbackWidget from "@/components/elements/FeedbackWidget";
 
 type Props = {
   intro?: DocSection;
@@ -42,6 +42,7 @@ const GetStarted = ({ intro, flow, next, sections }: Props) => {
             </section>
           ),
       )}
+      <FeedbackWidget />
     </div>
   );
 };

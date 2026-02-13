@@ -1,6 +1,6 @@
-import React from "react";
 import { BlockMini } from "@/components/elements/BlockMini";
 import { DocSection } from "@/lib/client/types";
+import FeedbackWidget from "@/components/elements/FeedbackWidget";
 
 type Props = {
   sections?: Record<string, DocSection>;
@@ -53,6 +53,7 @@ const UserManagement = ({ sections }: Props) => {
           </section>
         </div>
       )}
+      <FeedbackWidget />
     </div>
   );
 };
