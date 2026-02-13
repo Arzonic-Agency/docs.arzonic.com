@@ -61,7 +61,7 @@ const Sidebar = () => {
             </li>
           ))}
         </ul>
-        
+
         {/* Language and Theme toggles at bottom */}
         <div className="flex items-center justify-center gap-4 pt-4 border-t border-base-300">
           <Language />
@@ -70,7 +70,7 @@ const Sidebar = () => {
       </aside>
 
       {/* Desktop sidebar */}
-      <aside className="w-68 h-screen fixed md:top-25.25 bg-base-100 shadow-xl p-4 overflow-y-auto hidden md:block z-40">
+      <aside className="w-68 h-screen fixed md:top-25.25 bg-base-100 shadow-lg p-4 overflow-y-auto hidden md:block z-40">
         <ul className="menu space-y-4">
           {sections.map((section) => (
             <li key={section.label}>

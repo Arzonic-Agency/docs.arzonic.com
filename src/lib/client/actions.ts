@@ -124,3 +124,5 @@ export async function fetchSectionsBySlugs(
 
   return result;
 }
+
+// FEEDBACK

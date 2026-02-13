@@ -28,7 +28,7 @@
   --color-neutral-content: #e4e4e4;
   --color-info: #21847e;
   --color-info-content: #e4e4e4;
-  --color-success: #177512;
+  --color-success: #10640C;
   --color-success-content: #e4e4e4;
   --color-warning: #ae9f17;
   --color-warning-content: #e4e4e4;
@@ -64,7 +64,7 @@
   --color-neutral-content: oklch(98% 0.002 247.839);
   --color-info: oklch(68% 0.169 237.323);
   --color-info-content: oklch(28% 0.091 267.935);
-  --color-success: oklch(62% 0.194 149.214);
+  --color-success: #469842;
   --color-success-content: #eaeaeb;
   --color-warning: oklch(79% 0.184 86.047);
   --color-warning-content: oklch(28% 0.066 53.813);
@@ -127,12 +127,12 @@ html {
   list-style-position: inside;
 }
 
-.tiptap-list-style ul > li {
+.tiptap-list-style ul>li {
   list-style-type: disc;
   display: list-item;
 }
 
-.tiptap-list-style li > p {
+.tiptap-list-style li>p {
   margin: 0;
   display: inline;
 }

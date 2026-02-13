@@ -56,11 +56,13 @@ export default function FeedbackWidget() {
     <>
       <div className="flex items-center gap-2 my-8">
         <div className="tooltip" data-tip="Was this helpful?">
-          <div className="join">
+          <div className="join bg-base-100">
             <button
               onClick={handleThumbsUp}
               className={`btn btn-sm join-item ${
-                selectedFeedback === "up" ? "btn-success" : "btn-ghost"
+                selectedFeedback === "up"
+                  ? "bg-success/20 text-success "
+                  : "btn-ghost"
               }`}
               aria-label="Thumbs up"
             >
@@ -68,8 +70,10 @@ export default function FeedbackWidget() {
             </button>
             <button
               onClick={handleThumbsDown}
-              className={`btn btn-sm join-item ${
-                selectedFeedback === "down" ? "btn-error" : "btn-ghost"
+              className={`btn btn-sm join-item  ${
+                selectedFeedback === "down"
+                  ? "btn-error btn-soft "
+                  : "btn-ghost"
               }`}
               aria-label="Thumbs down"
             >
@@ -83,7 +87,7 @@ export default function FeedbackWidget() {
       {showModal && (
         <div className="modal modal-open">
           <div className="modal-box">
-            <h3 className="font-bold text-lg mb-4">What could be better?</h3>
+            <h3 className="font-bold mb-4">What could be better?</h3>
             <p className="text-sm text-base-content/70 mb-4">
               Please tell us what we can improve to make this more helpful.
             </p>
