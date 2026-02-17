@@ -40,18 +40,21 @@ export type Database = {
           created_at: string;
           message: string | null;
           is_positive: boolean;
+          topic: string;
         };
         Insert: {
           id?: string;
           created_at?: string;
           message?: string | null;
           is_positive: boolean;
+          topic: string;
         };
         Update: {
           id?: string;
           created_at?: string;
           message?: string | null;
           is_positive?: boolean;
+          topic?: string;
         };
         Relationships: [];
       };

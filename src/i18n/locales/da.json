@@ -15,7 +15,7 @@
   },
   "footer": {
     "brandName": "Arzonic Agency",
-    "reliableTech": "Pålidelig teknologi siden 2024",
+    "reliableTech": "Stærke løsninger siden 2024",
     "allRightsReserved": "Alle rettigheder forbeholdes"
   },
   "search": {
@@ -24,7 +24,7 @@
   },
   "feedback": {
     "tooltip": "Var det hjælpsomt?",
-    "tooltipSubmitted": "Feedback allerede indsendt",
+    "tooltipUpdate": "Opdater din feedback",
     "modalTitle": "Hvad kunne være bedre?",
     "modalBody": "Fortæl os gerne, hvad vi kan forbedre for at gøre det mere hjælpsomt.",
     "placeholder": "Din feedback...",

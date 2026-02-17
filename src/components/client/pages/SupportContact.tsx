@@ -50,7 +50,7 @@ const SupportContact = ({ sections }: Props) => {
           </section>
         </div>
       )}
-      <FeedbackWidget />
+      <FeedbackWidget topic="support-contact" />
     </div>
   );
 };

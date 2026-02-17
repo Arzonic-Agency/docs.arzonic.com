@@ -126,3 +126,50 @@ export async function fetchSectionsBySlugs(
 }
 
 // FEEDBACK
+export async function saveFeedbackToDb(params: {
+  feedbackId?: string | null;
+  isPositive: boolean;
+  message?: string | null;
+  topic: string;
+}) {
+  const supabase = await createServerClientInstance();
+
+  try {
+    if (params.feedbackId) {
+      const { error } = await supabase
+        .from("doc_feedback")
+        .update({
+          is_positive: params.isPositive,
+          message: params.message ?? null,
+        })
+        .eq("id", params.feedbackId);
+
+      if (error) {
+        console.error("Error updating feedback:", error);
+        return null;
+      }
+
+      return { id: params.feedbackId };
+    }
+
+    const { data, error } = await supabase
+      .from("doc_feedback")
+      .insert({
+        is_positive: params.isPositive,
+        message: params.message ?? null,
+        topic: params.topic,
+      })
+      .select("id")
+      .single();
+
+    if (error) {
+      console.error("Error saving feedback:", error);
+      return null;
+    }
+
+    return { id: data.id };
+  } catch (error) {
+    console.error("Unexpected error saving feedback:", error);
+    return null;
+  }
+}

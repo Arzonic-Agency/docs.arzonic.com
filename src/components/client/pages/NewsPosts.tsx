@@ -50,7 +50,7 @@ const NewsPosts = ({ sections }: Props) => {
           </section>
         </div>
       )}
-      <FeedbackWidget />
+      <FeedbackWidget topic="news-posts" />
     </div>
   );
 };

@@ -3,13 +3,18 @@
 import { useState, useEffect } from "react";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { FaPaperPlane } from "react-icons/fa6";
-import { createClient } from "@/utils/supabase/client";
 import { useTranslation } from "react-i18next";
+import { saveFeedbackToDb } from "@/lib/client/actions";
 
-const FEEDBACK_STORAGE_KEY = "doc_feedback_submitted";
+const FEEDBACK_STORAGE_PREFIX = "doc_feedback_";
 
-export default function FeedbackWidget() {
+interface FeedbackWidgetProps {
+  topic: string;
+}
+
+export default function FeedbackWidget({ topic }: FeedbackWidgetProps) {
   const { t } = useTranslation();
+  const FEEDBACK_STORAGE_KEY = `${FEEDBACK_STORAGE_PREFIX}${topic}`;
   const [showToast, setShowToast] = useState(false);
   const [selectedFeedback, setSelectedFeedback] = useState<
     "up" | "down" | null
@@ -18,51 +23,66 @@ export default function FeedbackWidget() {
   const [feedbackText, setFeedbackText] = useState("");
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedbackId, setFeedbackId] = useState<string | null>(null);
+  const [previousFeedback, setPreviousFeedback] = useState<
+    "up" | "down" | null
+  >(null);
 
   useEffect(() => {
     const submitted = localStorage.getItem(FEEDBACK_STORAGE_KEY);
-    if (submitted) {
+    if (!submitted) return;
+
+    try {
+      const parsed = JSON.parse(submitted) as {
+        feedback?: "up" | "down";
+        id?: string | null;
+      };
+
+      if (parsed.feedback === "up" || parsed.feedback === "down") {
+        setHasSubmitted(true);
+        setSelectedFeedback(parsed.feedback);
+        setFeedbackId(parsed.id ?? null);
+        return;
+      }
+    } catch {
+      // Fallback for legacy stored values
+    }
+
+    if (submitted === "up" || submitted === "down") {
       setHasSubmitted(true);
       setSelectedFeedback(submitted as "up" | "down");
     }
   }, []);
 
-  const saveFeedbackToDb = async (
-    isPositive: boolean,
-    message: string = "",
-  ) => {
-    const supabase = createClient();
-
-    try {
-      const { error } = await supabase.from("doc_feedback").insert({
-        is_positive: isPositive,
-        message: message || null,
-      });
-
-      if (error) {
-        console.error("Error saving feedback to database:", error);
-        return false;
-      }
-
-      return true;
-    } catch (error) {
-      console.error("Error saving feedback:", error);
-      return false;
-    }
+  const persistFeedback = (feedback: "up" | "down", id: string | null) => {
+    localStorage.setItem(
+      FEEDBACK_STORAGE_KEY,
+      JSON.stringify({ feedback, id }),
+    );
   };
 
   const handleThumbsUp = async () => {
-    if (hasSubmitted || isSubmitting) return;
+    if (isSubmitting) return;
+    if (hasSubmitted && selectedFeedback === "up") return;
 
     setIsSubmitting(true);
     setSelectedFeedback("up");
-
-    // Save to localStorage immediately for instant UI feedback
-    localStorage.setItem(FEEDBACK_STORAGE_KEY, "up");
     setHasSubmitted(true);
+    setFeedbackText("");
 
-    // Save to database
-    await saveFeedbackToDb(true);
+    persistFeedback("up", feedbackId);
+
+    const result = await saveFeedbackToDb({
+      feedbackId,
+      isPositive: true,
+      message: null,
+      topic,
+    });
+
+    if (result?.id) {
+      setFeedbackId(result.id);
+      persistFeedback("up", result.id);
+    }
 
     setShowToast(true);
     setIsSubmitting(false);
@@ -74,8 +94,9 @@ export default function FeedbackWidget() {
   };
 
   const handleThumbsDown = () => {
-    if (hasSubmitted) return;
+    if (isSubmitting) return;
 
+    setPreviousFeedback(selectedFeedback);
     setSelectedFeedback("down");
     setShowModal(true);
   };
@@ -85,13 +106,22 @@ export default function FeedbackWidget() {
 
     setIsSubmitting(true);
     setShowModal(false);
-
-    // Save to localStorage immediately for instant UI feedback
-    localStorage.setItem(FEEDBACK_STORAGE_KEY, "down");
+    setSelectedFeedback("down");
     setHasSubmitted(true);
 
-    // Save to database with message
-    await saveFeedbackToDb(false, feedbackText);
+    persistFeedback("down", feedbackId);
+
+    const result = await saveFeedbackToDb({
+      feedbackId,
+      isPositive: false,
+      message: feedbackText,
+      topic,
+    });
+
+    if (result?.id) {
+      setFeedbackId(result.id);
+      persistFeedback("down", result.id);
+    }
 
     setShowToast(true);
     setIsSubmitting(false);
@@ -107,7 +137,8 @@ export default function FeedbackWidget() {
 
   const handleCancelFeedback = () => {
     setShowModal(false);
-    setSelectedFeedback(null);
+    setSelectedFeedback(previousFeedback);
+    setPreviousFeedback(null);
     setFeedbackText("");
   };
 
@@ -117,15 +148,13 @@ export default function FeedbackWidget() {
         <div
           className="tooltip"
           data-tip={
-            hasSubmitted
-              ? t("feedback.tooltipSubmitted")
-              : t("feedback.tooltip")
+            hasSubmitted ? t("feedback.tooltipUpdate") : t("feedback.tooltip")
           }
         >
           <div className="join bg-base-100">
             <button
               onClick={handleThumbsUp}
-              disabled={hasSubmitted || isSubmitting}
+              disabled={isSubmitting}
               className={`btn btn-sm join-item ${
                 selectedFeedback === "up"
                   ? "bg-success/20 text-success "
@@ -137,7 +166,7 @@ export default function FeedbackWidget() {
             </button>
             <button
               onClick={handleThumbsDown}
-              disabled={hasSubmitted || isSubmitting}
+              disabled={isSubmitting}
               className={`btn btn-sm join-item  ${
                 selectedFeedback === "down"
                   ? "btn-error btn-soft "

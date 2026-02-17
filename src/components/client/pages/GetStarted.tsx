@@ -42,7 +42,7 @@ const GetStarted = ({ intro, flow, next, sections }: Props) => {
             </section>
           ),
       )}
-      <FeedbackWidget />
+      <FeedbackWidget topic="getting-started" />
     </div>
   );
 };

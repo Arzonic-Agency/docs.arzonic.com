@@ -53,7 +53,7 @@ const UserManagement = ({ sections }: Props) => {
           </section>
         </div>
       )}
-      <FeedbackWidget />
+      <FeedbackWidget topic="user-management" />
     </div>
   );
 };

@@ -24,7 +24,7 @@
   },
   "feedback": {
     "tooltip": "Was this helpful?",
-    "tooltipSubmitted": "Feedback already submitted",
+    "tooltipUpdate": "Update your feedback",
     "modalTitle": "What could be better?",
     "modalBody": "Please tell us what we can improve to make this more helpful.",
     "placeholder": "Your feedback...",
