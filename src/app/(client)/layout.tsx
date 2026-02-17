@@ -24,12 +24,12 @@ export default function ClientLayout({
 
   return (
     <>
-      <Script
+      {/* <Script
         async
         defer
         src="https://stats.arzonic.com/script.js"
         data-website-id="3226dc67-1feb-4d8c-9f6d-75f7dd0d23d7"
-      />
+      /> */}
       <div className="max-w-screen-2xl mx-auto relative">
         <Header />
         <Sidebar />
