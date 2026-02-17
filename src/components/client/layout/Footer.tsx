@@ -18,14 +18,14 @@ const Footer = () => {
           <div className="flex items-center gap-2">
             <FaHashtag className="text-3xl -rotate-12 text-secondary" />
             <p>
-              {t("Footer.brandName", "Arzonic Agency")}
+              {t("footer.brandName")}
               <br />
-              {t("Footer.reliableTech", "Providing reliable tech since 2024")}
+              {t("footer.reliableTech")}
             </p>
           </div>
           <span className="ml-2 text-xs text-zinc-500 flex items-center gap-1.25">
             <FaRegCopyright /> {new Date().getFullYear()} Arzonic ApS -{" "}
-            {t("All Rights Reserved")}
+            {t("footer.allRightsReserved")}
           </span>
         </aside>
         <nav>

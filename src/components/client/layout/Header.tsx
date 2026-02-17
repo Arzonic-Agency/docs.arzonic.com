@@ -82,7 +82,7 @@ const Header = () => {
         <button
           onClick={toggleSidebar}
           className="btn btn-sm btn-ghost text-xl md:hidden relative z-50"
-          aria-label="Åbn menu"
+          aria-label={t("header.openMenu")}
         >
           <FaBars />
         </button>
@@ -93,16 +93,18 @@ const Header = () => {
         >
           <Image
             src="/icon-192x192.png"
-            alt={t("Header.logoAlt")}
+            alt={t("header.logoAlt")}
             width={60}
             height={60}
             className={`h-10 w-10 md:h-14 md:w-14 rounded-full`}
             priority
           />
           <span className="font-bold text-2xl md:text-3xl tracking-wider">
-            {t("Header.brandName")}
+            {t("header.brandName")}
           </span>
-          <span className="text-secondary font-medium pt-2">Docs</span>
+          <span className="text-secondary font-medium pt-2">
+            {t("header.docsLabel")}
+          </span>
         </Link>
       </div>
       <div className="ml-30 navbar-center hidden md:flex md:w-72 lg:w-96">
@@ -134,7 +136,7 @@ const Header = () => {
             }
           }}
           className="btn btn-sm btn-ghost text-xl md:hidden relative z-50"
-          aria-label="Søg"
+          aria-label={t("header.searchAria")}
         >
           {isSearchOpen ? <FaTimes /> : <FaSearch />}
         </button>

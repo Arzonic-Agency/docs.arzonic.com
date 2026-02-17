@@ -9,7 +9,7 @@ export default function NotFound() {
   const { t } = useTranslation();
 
   return (
-    <div className="max-w-[1536px] mx-auto flex flex-col h-screen pt-[65px]">
+    <div className="max-w-384 mx-auto flex flex-col h-screen pt-16.25">
       <Header />
       <div className="flex flex-col items-center justify-center grow text-center px-4">
         {/* we still render “404” as-is, but you could also translate it */}

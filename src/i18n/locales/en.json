@@ -1,11 +1,42 @@
 {
   "header": {
     "logo": "Arzonic",
+    "logoAlt": "Arzonic logo",
+    "brandName": "Arzonic",
+    "docsLabel": "Docs",
+    "openMenu": "Open menu",
+    "searchAria": "Search",
     "menu": {
       "home": "Home",
       "about": "About",
       "services": "Services",
       "contact": "Contact"
+    }
+  },
+  "footer": {
+    "brandName": "Arzonic Agency",
+    "reliableTech": "Providing reliable tech since 2024",
+    "allRightsReserved": "All Rights Reserved"
+  },
+  "search": {
+    "placeholder": "Search",
+    "noResults": "No results found"
+  },
+  "feedback": {
+    "tooltip": "Was this helpful?",
+    "tooltipSubmitted": "Feedback already submitted",
+    "modalTitle": "What could be better?",
+    "modalBody": "Please tell us what we can improve to make this more helpful.",
+    "placeholder": "Your feedback...",
+    "cancel": "Cancel",
+    "ariaSubmit": "Submit feedback",
+    "ariaThumbsUp": "Thumbs up",
+    "ariaThumbsDown": "Thumbs down",
+    "toastThanks": "Thank you for your feedback!"
+  },
+  "aria": {
+    "navigation": {
+      "linkToHome": "Go to Arzonic home"
     }
   },
   "notFound": {

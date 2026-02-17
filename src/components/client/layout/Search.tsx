@@ -94,7 +94,7 @@ const Search = forwardRef<HTMLInputElement>((_, ref) => {
           ref={ref}
           type="search"
           className="grow"
-          placeholder={t("search.placeholder", "Search")}
+          placeholder={t("search.placeholder")}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsFocused(true)}
@@ -124,7 +124,7 @@ const Search = forwardRef<HTMLInputElement>((_, ref) => {
             </ul>
           ) : (
             <div className="p-4 text-center text-base-content/50">
-              Ingen resultater fundet
+              {t("search.noResults")}
             </div>
           )}
         </div>

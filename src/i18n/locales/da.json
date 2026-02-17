@@ -1,11 +1,42 @@
 {
   "header": {
     "logo": "Arzonic",
+    "logoAlt": "Arzonic logo",
+    "brandName": "Arzonic",
+    "docsLabel": "Docs",
+    "openMenu": "Åbn menu",
+    "searchAria": "Søg",
     "menu": {
       "home": "Forside",
       "about": "Om os",
       "services": "Tjenester",
       "contact": "Kontakt"
+    }
+  },
+  "footer": {
+    "brandName": "Arzonic Agency",
+    "reliableTech": "Pålidelig teknologi siden 2024",
+    "allRightsReserved": "Alle rettigheder forbeholdes"
+  },
+  "search": {
+    "placeholder": "Søg",
+    "noResults": "Ingen resultater fundet"
+  },
+  "feedback": {
+    "tooltip": "Var det hjælpsomt?",
+    "tooltipSubmitted": "Feedback allerede indsendt",
+    "modalTitle": "Hvad kunne være bedre?",
+    "modalBody": "Fortæl os gerne, hvad vi kan forbedre for at gøre det mere hjælpsomt.",
+    "placeholder": "Din feedback...",
+    "cancel": "Annuller",
+    "ariaSubmit": "Indsend feedback",
+    "ariaThumbsUp": "Tommel op",
+    "ariaThumbsDown": "Tommel ned",
+    "toastThanks": "Tak for din feedback!"
+  },
+  "aria": {
+    "navigation": {
+      "linkToHome": "Gå til Arzonic hjem"
     }
   },
   "notFound": {
