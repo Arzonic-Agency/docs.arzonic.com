@@ -136,7 +136,7 @@ const Header = () => {
             }
           }}
           className="btn btn-sm btn-ghost text-xl md:hidden relative z-50"
-          aria-label={t("header.searchAria")}
+          aria-label={t("search.placeholder")}
         >
           {isSearchOpen ? <FaTimes /> : <FaSearch />}
         </button>

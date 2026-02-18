@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import { useTranslation } from "react-i18next";
 import {
   FaFacebook,
@@ -14,7 +13,7 @@ const Footer = () => {
   return (
     <div className="md:ml-64 bg-base-100 shadow-lg">
       <footer className="flex justify-between items-center p-5 md:px-10 md:py-5">
-        <aside className="flex items-center  flex-col text-sm gap-2">
+        <aside className="flex items-start flex-col text-sm gap-2">
           <div className="flex items-center gap-2">
             <FaHashtag className="text-3xl -rotate-12 text-secondary" />
             <p>

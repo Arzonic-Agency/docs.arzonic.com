@@ -144,13 +144,41 @@ export default function FeedbackWidget({ topic }: FeedbackWidgetProps) {
 
   return (
     <>
-      <div className="flex items-center gap-2 my-8">
-        <div
-          className="tooltip"
-          data-tip={
-            hasSubmitted ? t("feedback.tooltipUpdate") : t("feedback.tooltip")
-          }
-        >
+      <div className="flex flex-col items-start gap-2 my-8">
+        <span className="text-sm">{t("feedback.tooltip")}</span>
+        {hasSubmitted ? (
+          <div
+            className="tooltip tooltip-right"
+            data-tip={t("feedback.tooltipUpdate")}
+          >
+            <div className="join bg-base-100">
+              <button
+                onClick={handleThumbsUp}
+                disabled={isSubmitting}
+                className={`btn btn-sm join-item ${
+                  selectedFeedback === "up"
+                    ? "bg-success/20 text-success "
+                    : "btn-ghost"
+                }`}
+                aria-label={t("feedback.ariaThumbsUp")}
+              >
+                <FaThumbsUp className="text-lg" />
+              </button>
+              <button
+                onClick={handleThumbsDown}
+                disabled={isSubmitting}
+                className={`btn btn-sm join-item  ${
+                  selectedFeedback === "down"
+                    ? "btn-error btn-soft "
+                    : "btn-ghost"
+                }`}
+                aria-label={t("feedback.ariaThumbsDown")}
+              >
+                <FaThumbsDown className="text-lg" />
+              </button>
+            </div>
+          </div>
+        ) : (
           <div className="join bg-base-100">
             <button
               onClick={handleThumbsUp}
@@ -177,7 +205,7 @@ export default function FeedbackWidget({ topic }: FeedbackWidgetProps) {
               <FaThumbsDown className="text-lg" />
             </button>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Modal for negative feedback */}

@@ -5,12 +5,8 @@
     "brandName": "Arzonic",
     "docsLabel": "Docs",
     "openMenu": "Åbn menu",
-    "searchAria": "Søg",
     "menu": {
-      "home": "Forside",
-      "about": "Om os",
-      "services": "Tjenester",
-      "contact": "Kontakt"
+      "home": "Forside"
     }
   },
   "footer": {
@@ -23,12 +19,12 @@
     "noResults": "Ingen resultater fundet"
   },
   "feedback": {
-    "tooltip": "Var det hjælpsomt?",
-    "tooltipUpdate": "Opdater din feedback",
+    "tooltip": "Var dette hjælpsomt?",
+    "tooltipUpdate": "Ændr din feedback",
     "modalTitle": "Hvad kunne være bedre?",
     "modalBody": "Fortæl os gerne, hvad vi kan forbedre for at gøre det mere hjælpsomt.",
     "placeholder": "Din feedback...",
-    "cancel": "Annuller",
+    "cancel": "Annullér",
     "ariaSubmit": "Indsend feedback",
     "ariaThumbsUp": "Tommel op",
     "ariaThumbsDown": "Tommel ned",

@@ -5,12 +5,8 @@
     "brandName": "Arzonic",
     "docsLabel": "Docs",
     "openMenu": "Open menu",
-    "searchAria": "Search",
     "menu": {
-      "home": "Home",
-      "about": "About",
-      "services": "Services",
-      "contact": "Contact"
+      "home": "Home"
     }
   },
   "footer": {
@@ -24,7 +20,7 @@
   },
   "feedback": {
     "tooltip": "Was this helpful?",
-    "tooltipUpdate": "Update your feedback",
+    "tooltipUpdate": "Change your feedback",
     "modalTitle": "What could be better?",
     "modalBody": "Please tell us what we can improve to make this more helpful.",
     "placeholder": "Your feedback...",
