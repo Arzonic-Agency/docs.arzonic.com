@@ -11,7 +11,7 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="md:ml-64 bg-base-100 shadow-lg">
+    <div className="md:ml-64 bg-base-100">
       <footer className="flex justify-between items-center p-5 md:px-10 md:py-5">
         <aside className="flex items-start flex-col text-sm gap-2">
           <div className="flex items-center gap-2">
