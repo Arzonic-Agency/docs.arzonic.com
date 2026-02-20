@@ -24,9 +24,6 @@ export default function FeedbackWidget({ topic }: FeedbackWidgetProps) {
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedbackId, setFeedbackId] = useState<string | null>(null);
-  const [previousFeedback, setPreviousFeedback] = useState<
-    "up" | "down" | null
-  >(null);
 
   useEffect(() => {
     const submitted = localStorage.getItem(FEEDBACK_STORAGE_KEY);
@@ -96,7 +93,6 @@ export default function FeedbackWidget({ topic }: FeedbackWidgetProps) {
   const handleThumbsDown = () => {
     if (isSubmitting) return;
 
-    setPreviousFeedback(selectedFeedback);
     setSelectedFeedback("down");
     setShowModal(true);
   };
@@ -135,10 +131,37 @@ export default function FeedbackWidget({ topic }: FeedbackWidgetProps) {
     setFeedbackText("");
   };
 
-  const handleCancelFeedback = () => {
+  const handleSkipFeedback = async () => {
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
     setShowModal(false);
-    setSelectedFeedback(previousFeedback);
-    setPreviousFeedback(null);
+    setSelectedFeedback("down");
+    setHasSubmitted(true);
+
+    persistFeedback("down", feedbackId);
+
+    const result = await saveFeedbackToDb({
+      feedbackId,
+      isPositive: false,
+      message: null,
+      topic,
+    });
+
+    if (result?.id) {
+      setFeedbackId(result.id);
+      persistFeedback("down", result.id);
+    }
+
+    setShowToast(true);
+    setIsSubmitting(false);
+
+    // Hide toast after 3 seconds
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
+
+    // Reset feedback text
     setFeedbackText("");
   };
 
@@ -223,20 +246,21 @@ export default function FeedbackWidget({ topic }: FeedbackWidgetProps) {
               onChange={(e) => setFeedbackText(e.target.value)}
             />
             <div className="modal-action">
-              <button className="btn btn-ghost" onClick={handleCancelFeedback}>
-                {t("feedback.cancel")}
+              <button
+                className="btn btn-ghost"
+                onClick={handleSkipFeedback}
+                disabled={isSubmitting}
+              >
+                {t("feedback.skip")}
               </button>
               <button
-                className="btn btn-primary btn-square"
+                className="btn btn-primary"
                 onClick={handleSubmitFeedback}
-                disabled={isSubmitting}
+                disabled={isSubmitting || feedbackText.trim().length === 0}
                 aria-label={t("feedback.ariaSubmit")}
               >
-                {isSubmitting ? (
-                  <span className="loading loading-spinner loading-sm"></span>
-                ) : (
-                  <FaPaperPlane />
-                )}
+                {t("feedback.submit")}
+                <FaPaperPlane />
               </button>
             </div>
           </div>

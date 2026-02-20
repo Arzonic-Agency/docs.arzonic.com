@@ -24,7 +24,8 @@
     "modalTitle": "What could be better?",
     "modalBody": "Please tell us what we can improve to make this more helpful.",
     "placeholder": "Your feedback...",
-    "cancel": "Cancel",
+    "skip": "Skip",
+    "submit": "Submit",
     "ariaSubmit": "Submit feedback",
     "ariaThumbsUp": "Thumbs up",
     "ariaThumbsDown": "Thumbs down",
@@ -40,5 +41,42 @@
     "message": "Page not found",
     "home": "Home",
     "contact": "Contact"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What is Arzonic Docs?",
+        "answer": "Arzonic Docs is your central hub for documentation, guides, and resources to help you get the most out of Arzonic's products and services."
+      },
+      {
+        "question": "How do I navigate the documentation?",
+        "answer": "Use the sidebar on the left to browse sections, or press Ctrl+K (Cmd+K on Mac) to quickly search for specific topics."
+      },
+      {
+        "question": "Is the documentation available in other languages?",
+        "answer": "Yes! We currently support English and Danish. You can switch languages using the language toggle in the header or sidebar."
+      },
+      {
+        "question": "How do I report an error in the documentation?",
+        "answer": "Use the feedback widget at the bottom of each page to let us know. Click the thumbs down button and describe what's wrong."
+      },
+      {
+        "question": "Can I request a new topic or guide?",
+        "answer": "Absolutely! Reach out to our support team via the contact section, and we'll consider adding it to our documentation."
+      },
+      {
+        "question": "How often is the documentation updated?",
+        "answer": "We update the documentation regularly as new features are released or existing content is improved based on user feedback."
+      },
+      {
+        "question": "Do I need an account to access the documentation?",
+        "answer": "Most documentation is publicly accessible. Some advanced or internal resources may require you to sign in."
+      },
+      {
+        "question": "Who can I contact for further support?",
+        "answer": "You can reach our support team through the contact section on this page, or send an email directly to our support address."
+      }
+    ]
   }
 }

@@ -24,7 +24,8 @@
     "modalTitle": "Hvad kunne være bedre?",
     "modalBody": "Fortæl os gerne, hvad vi kan forbedre for at gøre det mere hjælpsomt.",
     "placeholder": "Din feedback...",
-    "cancel": "Annullér",
+    "skip": "Spring over",
+    "submit": "Send",
     "ariaSubmit": "Indsend feedback",
     "ariaThumbsUp": "Tommel op",
     "ariaThumbsDown": "Tommel ned",
@@ -40,5 +41,42 @@
     "message": "Siden blev ikke fundet",
     "home": "Forside",
     "contact": "Kontakt"
+  },
+  "faq": {
+    "title": "Ofte stillede spørgsmål",
+    "items": [
+      {
+        "question": "Hvad er Arzonic Docs?",
+        "answer": "Arzonic Docs er dit centrale sted for dokumentation, vejledninger og ressourcer, der hjælper dig med at få mest muligt ud af Arzonics produkter og tjenester."
+      },
+      {
+        "question": "Hvordan navigerer jeg i dokumentationen?",
+        "answer": "Brug sidebaren til venstre for at gennemse sektioner, eller tryk Ctrl+K (Cmd+K på Mac) for hurtigt at søge efter specifikke emner."
+      },
+      {
+        "question": "Er dokumentationen tilgængelig på andre sprog?",
+        "answer": "Ja! Vi understøtter i øjeblikket engelsk og dansk. Du kan skifte sprog via sprogskifteren i headeren eller sidebaren."
+      },
+      {
+        "question": "Hvordan rapporterer jeg en fejl i dokumentationen?",
+        "answer": "Brug feedback-widgetten nederst på hver side. Klik på tommelfingeren nedad, og beskriv hvad der er galt."
+      },
+      {
+        "question": "Kan jeg anmode om et nyt emne eller en ny vejledning?",
+        "answer": "Helt sikkert! Kontakt vores supportteam via kontaktsektionen, så vil vi overveje at tilføje det til dokumentationen."
+      },
+      {
+        "question": "Hvor ofte opdateres dokumentationen?",
+        "answer": "Vi opdaterer dokumentationen løbende, når nye funktioner udgives, eller eksisterende indhold forbedres baseret på brugerfeedback."
+      },
+      {
+        "question": "Skal jeg have en konto for at tilgå dokumentationen?",
+        "answer": "Det meste dokumentation er offentligt tilgængeligt. Nogle avancerede eller interne ressourcer kan kræve, at du logger ind."
+      },
+      {
+        "question": "Hvem kan jeg kontakte for yderligere support?",
+        "answer": "Du kan kontakte vores supportteam via kontaktsektionen på denne side eller sende en e-mail direkte til vores supportadresse."
+      }
+    ]
   }
 }

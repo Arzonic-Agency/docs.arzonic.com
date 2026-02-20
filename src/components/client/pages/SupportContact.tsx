@@ -1,6 +1,7 @@
 import { BlockMini } from "@/components/elements/BlockMini";
 import { DocSection } from "@/lib/client/types";
 import FeedbackWidget from "@/components/elements/FeedbackWidget";
+import FAQAccordion from "@/components/elements/FAQAccordion";
 
 type Props = {
   sections?: Record<string, DocSection>;
@@ -12,7 +13,6 @@ const SupportContact = ({ sections }: Props) => {
   return (
     <div className="space-y-10">
       <h1 className="text-2xl md:text-3xl font-semibold">Support og kontakt</h1>
-
       {sectionsToUse.length > 0 ? (
         sectionsToUse.map(
           (section, index) =>
@@ -50,6 +50,7 @@ const SupportContact = ({ sections }: Props) => {
           </section>
         </div>
       )}
+      <FAQAccordion /> {/* Don't quite know exactly where to put this. */}
       <FeedbackWidget topic="support-contact" />
     </div>
   );

@@ -33,7 +33,7 @@ const Sidebar = () => {
     <>
       {/* Mobile sidebar */}
       <aside
-        className={`w-68 fixed top-16 bottom-0 bg-base-100 shadow-xl p-4 pt-10 z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${
+        className={`w-68 fixed top-22 bottom-0 bg-base-100 shadow-xl p-4 pt-10 z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${
           isMobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
