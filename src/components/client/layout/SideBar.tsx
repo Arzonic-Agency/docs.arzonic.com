@@ -33,7 +33,7 @@ const Sidebar = () => {
     <>
       {/* Mobile sidebar */}
       <aside
-        className={`w-68 fixed top-24 bottom-0 bg-base-100 shadow-xl p-4 pt-10 z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${
+        className={`w-68 fixed top-24 bottom-0 bg-base-100 shadow-md p-4 pt-10 z-50 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${
           isMobileOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -70,7 +70,7 @@ const Sidebar = () => {
       </aside>
 
       {/* Desktop sidebar */}
-      <aside className="w-68 h-screen fixed md:top-25.25 bg-base-100 shadow-lg p-4 overflow-y-auto hidden md:block z-40">
+      <aside className="w-68 h-screen fixed md:top-25.25 bg-base-100 p-4 overflow-y-auto hidden md:block z-40">
         <ul className="menu space-y-4">
           {sections.map((section) => (
             <li key={section.label}>

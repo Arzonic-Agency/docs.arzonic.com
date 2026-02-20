@@ -77,7 +77,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar fixed top-0 inset-x-0 z-50 max-w-384 mx-auto md:px-5 md:py-5 h-24 md:h-auto bg-base-100 shadow">
+    <div className="navbar fixed top-0 inset-x-0 z-50 max-w-384 mx-auto md:px-5 md:py-5 h-24 md:h-auto bg-base-100 border-b-2 border-base-content/10">
       <div className="navbar-start flex items-center gap-2 md:pl-4">
         <button
           onClick={toggleSidebar}
