@@ -35,7 +35,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="md:hover:text-secondary md:transition-colors md:duration-300"
             >
-              <FaFacebook size={28} />
+              <FaFacebook size={27} />
             </Link>
             <Link
               href="https://www.instagram.com/arzonic.agency/"
